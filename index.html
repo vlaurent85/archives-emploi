@@ -77,6 +77,21 @@
       letter-spacing:-.025em;
       font-size:1.08rem;
     }
+     .logo-header {
+      display: block;
+      height: 64px;
+      width: auto;
+      max-width: 420px;
+      object-fit: contain;
+    }
+    
+    @media (max-width: 760px) {
+    .logo-header {
+      height: 50px;
+      max-width: 280px;
+    }
+  }
+
     .brand-mark{
       width:43px;
       height:43px;
@@ -574,9 +589,8 @@
 
   <header>
     <div class="container nav">
-      <a class="brand" href="#" aria-label="Archiposte — Accueil">
-        <img class="brand-mark" src="favicon.svg" alt="">
-        <span><span class="brand-name">Archiposte</span><small>Archives & information</small></span>
+      <a class="brand" href="/" aria-label="Archiposte — Accueil">
+      <img class="logo-header" src="logo-archiposte.png" alt="Archiposte">
       </a>
 
       <nav class="navlinks">

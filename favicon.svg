@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+<title id="title">Archiposte</title>
+<path d="M14 31c0-7.7 6.3-14 14-14h29l11 12h32c7.7 0 14 6.3 14 14v57c0 7.7-6.3 14-14 14H28c-7.7 0-14-6.3-14-14V31z"
+      fill="#F6F3EB" stroke="#1F3D2E" stroke-width="9" stroke-linejoin="round"/>
+<path d="M39 88 58 43l19 45M47 69h24" fill="none" stroke="#1F3D2E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M76 47h13c10 0 17 6 17 15s-7 15-17 15H76M90 77l13 14"
+      fill="none" stroke="#1F3D2E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

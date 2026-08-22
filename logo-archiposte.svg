@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 220" role="img" aria-labelledby="title desc">
+<title id="title">Archiposte</title>
+<desc id="desc">Le site d’emploi des professionnels des archives et de l’information</desc>
+
+<g transform="translate(10 37)">
+  <path d="M14 31c0-7.7 6.3-14 14-14h29l11 12h32c7.7 0 14 6.3 14 14v57c0 7.7-6.3 14-14 14H28c-7.7 0-14-6.3-14-14V31z"
+        fill="#F6F3EB" stroke="#1F3D2E" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M39 88 58 43l19 45M47 69h24" fill="none" stroke="#1F3D2E" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 47h13c10 0 17 6 17 15s-7 15-17 15H76M90 77l13 14"
+        fill="none" stroke="#1F3D2E" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<line x1="158" y1="42" x2="158" y2="178" stroke="#A6B59A" stroke-width="2"/>
+<text x="194" y="105" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-weight="600" fill="#1E1E1E">
+  Archiposte
+</text>
+<text x="198" y="143" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" fill="#1F3D2E">
+  Le site d’emploi des professionnels
+</text>
+<text x="198" y="171" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" fill="#1F3D2E">
+  des archives et de l’information
+</text>
+</svg>

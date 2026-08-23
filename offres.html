@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-archiposte.png">
+<title>Offres d’emploi — Archiposte</title>
+<meta name="description" content="Toutes les offres d’emploi en archives, records management, archivage numérique et gestion de l’information.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar"><div class="container"><span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span><span>Les annonces renvoient vers leur source originale</span></div></div>
+  <header><div class="container nav">
+    <a class="brand" href="index.html" aria-label="Archiposte — Accueil"><img src="favicon-archiposte.png" alt="" class="brand-icon"><span class="brand-name">Archiposte</span></a>
+    <nav class="navlinks" aria-label="Navigation principale">
+      <a href="offres.html" class="active">Offres</a><a href="metiers.html">Métiers</a><a href="projet.html">Le projet</a><a class="button secondary" href="publier.html">Publier une offre</a>
+    </nav>
+  </div></header>
+  <main><section class="page-hero"><div class="container"><div class="eyebrow">Emploi</div><h1>Offres d’emploi</h1><p>Retrouvez les opportunités en archives, records management, archivage numérique et gestion de l’information.</p></div></section><section class="section"><div class="container jobs-layout"><aside class="filters-panel"><h3>Filtres</h3><div class="filter-group"><label for="contract">Contrat</label><select id="contract"><option value="">Tous les contrats</option></select></div><div class="filter-group"><label for="status">Statut</label><select id="status"><option value="">Tous les statuts</option></select></div><div class="filter-group"><label for="sector">Secteur</label><select id="sector"><option value="">Public + privé</option></select></div><div class="filter-group"><label for="specialty">Spécialité</label><select id="specialty"><option value="">Toutes les spécialités</option></select></div><div class="filter-group"><label for="region">Région</label><select id="region"><option value="">Toutes les régions</option></select></div><div class="filter-group"><label for="remote">Télétravail</label><select id="remote"><option value="">Tous</option></select></div><button class="reset" id="resetFilters" type="button">Réinitialiser les filtres</button><div class="alert-card"><h3>Alertes emploi</h3><p>Recevoir automatiquement les nouvelles offres correspondant à vos critères.</p><span class="badge-soon">Bientôt disponible</span></div></aside><div><div class="filters-shell" style="position:static;top:auto"><div class="filters" style="grid-template-columns:minmax(0,1fr)"><input id="search" type="search" placeholder="Métier, employeur, ville, compétence…"></div></div><div class="jobs-main-head"><strong id="countTextTop">Chargement…</strong><select id="sort"><option value="recent">Plus récentes</option><option value="deadline">Date limite la plus proche</option><option value="title">Intitulé A → Z</option></select></div><div class="jobs" id="jobs"><div class="state">Chargement des offres…</div></div></div></div></section></main><div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><div><h2 id="modalTitle"></h2><p class="modal-employer" id="modalEmployer"></p></div><button class="close" id="closeModal" aria-label="Fermer">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+  <footer><div class="container footer-grid"><div class="footer-brand"><img src="favicon-archiposte.png" alt=""><span>Archiposte</span></div><div class="footer-links"><a href="projet.html#contact">À propos / Contact</a><a href="mailto:archiposte@proton.me">Contact</a><a href="confidentialite.html">Confidentialité</a><span>Mentions légales — à compléter</span></div></div></footer>
+<script src="common.js"></script><script src="offres.js"></script>
+</body></html>

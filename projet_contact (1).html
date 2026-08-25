@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon-archiposte.png">
+  <title>Le projet — Archiposte</title>
+  <meta name="description" content="Pourquoi Archiposte existe, comment le site sélectionne et structure les offres, et à qui il s’adresse.">
+  <style>
+    :root{--paper:#f5f1e8;--paper-2:#fbf8f2;--ink:#102a21;--muted:#66736d;--green:#0d5a45;--green-dark:#073e31;--green-soft:#edf2e7;--warm:#9a5d30;--line:#dedbd3;--white:#fffdfa;--shadow:0 12px 30px rgba(17,42,32,.07);--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.container{width:min(1360px,calc(100% - 40px));margin-inline:auto}
+    .topbar{background:#062f25;color:#f8faf8;font-size:.78rem}.topbar-inner{height:35px;display:flex;align-items:center;justify-content:space-between;gap:24px;white-space:nowrap}.topbar strong{font-weight:850}.topbar-right{opacity:.88}
+    header{background:rgba(248,245,237,.98);border-bottom:1px solid var(--line)}.nav{height:96px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:14px;min-width:max-content}.brand img{width:58px;height:58px;object-fit:contain}.brand-name{font-weight:800;font-size:2.55rem;line-height:1;letter-spacing:-.048em;color:#111f1a}.navlinks{display:flex;align-items:center;gap:42px;font-size:.91rem;font-weight:800}.navlinks a:not(.publish):hover{color:var(--green)}.navlinks .active{color:var(--green)}.publish{border:1px solid var(--green);border-radius:8px;color:var(--green);padding:12px 18px;transition:.15s ease}.publish:hover{background:var(--green);color:#fff}
+    .hero{padding:48px 0 42px;background:radial-gradient(circle at 82% 30%,rgba(13,90,69,.07),transparent 27%),linear-gradient(180deg,var(--paper-2),var(--paper));border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:66px;align-items:center}.eyebrow{margin:0 0 12px;color:var(--warm);font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}h1{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,4.8vw,5.25rem);line-height:.97;letter-spacing:-.045em;max-width:870px}.intro{margin:19px 0 0;max-width:780px;color:#475950;font-size:1rem;line-height:1.75}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--green);background:var(--green);color:#fff;border-radius:8px;padding:10px 15px;font-size:.8rem;font-weight:850}.button:hover{background:var(--green-dark)}.button.secondary{background:transparent;color:var(--green)}.button.secondary:hover{background:var(--green-soft)}
+    .manifesto{border:1px solid var(--line);border-radius:16px;background:#f8f5ed;overflow:hidden;box-shadow:0 12px 30px rgba(17,42,32,.04)}.manifesto-top{padding:28px;background:var(--green-dark);color:#fff}.manifesto-top small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:850;font-size:.66rem;opacity:.75;margin-bottom:10px}.manifesto-top blockquote{margin:0;font-family:var(--serif);font-size:1.8rem;line-height:1.18;letter-spacing:-.025em}.manifesto-bottom{display:grid;grid-template-columns:repeat(3,1fr)}.manifesto-stat{padding:18px 16px;border-right:1px solid var(--line)}.manifesto-stat:last-child{border-right:0}.manifesto-stat strong{display:block;font-family:var(--serif);color:var(--green);font-size:1.65rem;line-height:1}.manifesto-stat span{display:block;margin-top:6px;color:var(--muted);font-size:.68rem;line-height:1.4}
+    .section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:20px}.section-head h2{margin:0;font-family:var(--serif);font-size:2.25rem;font-weight:500;letter-spacing:-.03em}.section-head p{margin:7px 0 0;color:var(--muted);font-size:.86rem}
+    .why-grid{display:grid;grid-template-columns:1.15fr repeat(3,.95fr);gap:14px}.why-main,.why-card{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.68)}.why-main{padding:26px}.why-main h3{margin:0;font-family:var(--serif);font-size:1.6rem;font-weight:500}.why-main p{margin:11px 0 0;color:#526159;line-height:1.75;font-size:.84rem}.why-card{padding:20px}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);color:var(--green);margin-bottom:14px}.icon svg{width:22px;height:22px;stroke:currentColor}.why-card h3{margin:0;font-size:.9rem}.why-card p{margin:7px 0 0;color:var(--muted);font-size:.75rem;line-height:1.6}
+    .process{background:#f8f5ed;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fffdfa}.step{position:relative;padding:23px 22px 24px;border-right:1px solid var(--line)}.step:last-child{border-right:0}.step-number{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:var(--green);color:#fff;font-size:.74rem;font-weight:900;margin-bottom:14px}.step h3{margin:0;font-size:.87rem}.step p{margin:6px 0 0;color:var(--muted);font-size:.73rem;line-height:1.55}
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.audience-card{min-height:180px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.7);padding:21px}.audience-card h3{margin:0;font-family:var(--serif);font-size:1.3rem;font-weight:600}.audience-card p{margin:8px 0 0;color:var(--muted);font-size:.77rem;line-height:1.62}.audience-card .tag{display:inline-flex;margin-top:15px;padding:5px 8px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:.65rem;font-weight:850}
+    .independence{display:grid;grid-template-columns:1fr 1fr;gap:16px}.independence-card{border:1px solid var(--line);border-radius:12px;padding:24px;background:#fffdfa}.independence-card.dark{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}.independence-card h2{margin:0;font-family:var(--serif);font-size:1.75rem;font-weight:500}.independence-card p{margin:10px 0 0;color:var(--muted);font-size:.8rem;line-height:1.7}.independence-card.dark p{color:#dce6e1}
+    .roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.roadmap-card{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fffdfa}.roadmap-card .status{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:.61rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;margin-bottom:11px}.status.now{background:var(--green-soft);color:var(--green)}.status.next{background:#f2e9df;color:#755039}.status.later{background:#ececec;color:#666}.roadmap-card h3{margin:0;font-size:.88rem}.roadmap-card ul{margin:10px 0 0;padding-left:17px;color:var(--muted);font-size:.73rem;line-height:1.65}
+    .contact{margin-bottom:54px;border-radius:13px;padding:26px 28px;background:var(--green-dark);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px}.contact h2{margin:0;font-family:var(--serif);font-size:1.7rem;font-weight:500}.contact p{margin:6px 0 0;color:#dce6e1;font-size:.8rem}.contact a{flex:0 0 auto;border:1px solid #fff;border-radius:8px;padding:10px 15px;font-weight:850;font-size:.8rem}
+    footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:.78rem}.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    /* Contact form modal */
+    body.modal-open{overflow:hidden}
+    .contact-button{
+      flex:0 0 auto;
+      border:1px solid #fff;
+      border-radius:8px;
+      padding:10px 15px;
+      font-weight:850;
+      font-size:.8rem;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+    }
+    .contact-button:hover{background:rgba(255,255,255,.1)}
+
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:100;
+      background:rgba(18,28,23,.58);
+    }
+    .modal-backdrop.open{display:flex}
+    .contact-modal{
+      width:min(680px,100%);
+      max-height:90vh;
+      overflow:auto;
+      background:var(--white);
+      border:1px solid rgba(255,255,255,.7);
+      border-radius:18px;
+      box-shadow:0 28px 80px rgba(20,36,29,.25);
+    }
+    .contact-modal-head{
+      position:sticky;
+      top:0;
+      z-index:2;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+      padding:24px 26px 19px;
+      background:rgba(255,253,250,.98);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+    .contact-modal-head h2{
+      margin:0;
+      font-family:var(--serif);
+      font-size:1.8rem;
+      font-weight:500;
+      line-height:1.1;
+    }
+    .contact-modal-head p{
+      margin:7px 0 0;
+      color:var(--muted);
+      font-size:.78rem;
+    }
+    .modal-close{
+      width:38px;
+      height:38px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+    .contact-modal-body{padding:23px 26px 27px}
+    .contact-form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .contact-field{display:grid;gap:6px}
+    .contact-field.full{grid-column:1/-1}
+    .contact-field label{
+      font-size:.69rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+      font-weight:900;
+    }
+    .contact-field input,
+    .contact-field select,
+    .contact-field textarea{
+      width:100%;
+      border:1px solid #d8d6d0;
+      background:#fff;
+      color:var(--ink);
+      border-radius:8px;
+      padding:11px 12px;
+      outline:0;
+      font:inherit;
+    }
+    .contact-field textarea{
+      min-height:150px;
+      resize:vertical;
+      line-height:1.55;
+    }
+    .contact-field input:focus,
+    .contact-field select:focus,
+    .contact-field textarea:focus{
+      border-color:#9ab6ab;
+      box-shadow:0 0 0 3px rgba(13,90,69,.08);
+    }
+    .contact-help{
+      margin:5px 0 0;
+      color:var(--muted);
+      font-size:.7rem;
+      line-height:1.5;
+    }
+    .contact-form-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .contact-submit{
+      border:1px solid var(--green);
+      background:var(--green);
+      color:#fff;
+      border-radius:8px;
+      padding:10px 15px;
+      font-weight:850;
+      font-size:.8rem;
+      cursor:pointer;
+    }
+    .contact-submit:hover{background:var(--green-dark)}
+    .contact-submit:disabled{opacity:.6;cursor:wait}
+    .contact-status{font-size:.76rem;color:var(--muted)}
+    .contact-status.success{color:var(--green)}
+    .contact-status.error{color:#a13d32}
+
+    @media(max-width:1050px){.hero-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr 1fr}.why-main{grid-column:1/-1}.process-grid{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+    @media(max-width:760px){.topbar-right{display:none}.container{width:min(100% - 26px,1360px)}.nav{height:82px}.brand img{width:50px;height:50px}.brand-name{font-size:2.15rem}.navlinks{gap:18px}.navlinks a:not(.publish){display:none}.hero{padding-top:30px}h1{font-size:3.1rem}.manifesto-bottom{grid-template-columns:1fr}.manifesto-stat{border-right:0;border-bottom:1px solid var(--line)}.manifesto-stat:last-child{border-bottom:0}.why-grid,.audience-grid,.roadmap-grid,.independence{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.step{border-right:0!important;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.contact{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container topbar-inner"><span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span><span class="topbar-right">Les annonces renvoient vers leur source originale</span></div></div>
+  <header><div class="container nav"><a class="brand" href="index.html" aria-label="Archiposte — Accueil"><img src="favicon-archiposte.png" alt=""><span class="brand-name">Archiposte</span></a><nav class="navlinks" aria-label="Navigation principale"><a href="offres.html">Offres</a><a href="metiers.html">Métiers</a><a class="active" href="projet.html">Le projet</a><a class="publish" href="publier.html">Publier une offre</a></nav></div></header>
+  <main>
+    <section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Pourquoi Archiposte ?</div><h1>Un site d’emploi pensé pour un secteur qui mérite d’être mieux visible.</h1><p class="intro">Les offres en archives et gestion de l’information sont dispersées entre plateformes publiques, sites d’employeurs, acteurs privés et réseaux professionnels. Archiposte veut les réunir, les structurer et rendre les métiers du secteur plus faciles à explorer.</p><div class="hero-actions"><a class="button" href="offres.html">Voir les offres</a><a class="button secondary" href="publier.html">Publier une offre</a></div></div><aside class="manifesto"><div class="manifesto-top"><small>L’idée</small><blockquote>Un espace simple, spécialisé et utile, au service de l’emploi et de la visibilité des métiers.</blockquote></div><div class="manifesto-bottom"><div class="manifesto-stat"><strong>1</strong><span>site dédié au secteur</span></div><div class="manifesto-stat"><strong>2</strong><span>mondes réunis : public & privé</span></div><div class="manifesto-stat"><strong>∞</strong><span>possibilités d’évolution du projet</span></div></div></aside></div></section>
+
+    <section class="section"><div class="container"><div class="section-head"><div><h2>Pourquoi ce projet ?</h2><p>Un problème simple : les opportunités existent, mais elles sont difficiles à suivre au même endroit.</p></div></div><div class="why-grid"><article class="why-main"><h3>Réunir ce qui est aujourd’hui dispersé.</h3><p>Une offre d’archiviste peut apparaître sur une plateforme publique, une autre sur le site d’une entreprise, une troisième via un acteur spécialisé. Cette dispersion rend la veille chronophage et peut masquer la diversité réelle du marché de l’emploi. Archiposte cherche d’abord à résoudre ce problème très concret.</p></article><article class="why-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Centraliser</h3><p>Réunir les offres pertinentes dans une interface commune et spécialisée.</p></article><article class="why-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h7l2 2h7v12H4z"/><path d="M8 11h8M8 15h6"/></svg></div><h3>Structurer</h3><p>Présenter contrat, statut, spécialité, localisation et autres critères de façon cohérente.</p></article><article class="why-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg></div><h3>Valoriser</h3><p>Montrer la diversité des métiers, des employeurs et des parcours possibles.</p></article></div></div></section>
+
+    <section class="section process"><div class="container"><div class="section-head"><div><h2>Comment ça fonctionne ?</h2><p>Archiposte ne remplace pas les diffuseurs : il facilite la découverte et la comparaison des annonces.</p></div></div><div class="process-grid"><article class="step"><div class="step-number">1</div><h3>Une offre est repérée ou proposée</h3><p>Elle provient d’un employeur, d’une plateforme publique ou privée, ou d’une proposition directe.</p></article><article class="step"><div class="step-number">2</div><h3>Elle est vérifiée</h3><p>Le lien, l’employeur et les informations essentielles sont contrôlés avant mise en ligne.</p></article><article class="step"><div class="step-number">3</div><h3>Elle est structurée</h3><p>Les principaux critères sont harmonisés pour rendre les offres plus faciles à parcourir.</p></article><article class="step"><div class="step-number">4</div><h3>La candidature reste externe</h3><p>Archiposte renvoie toujours vers l’annonce originale pour la candidature et les informations complètes.</p></article></div></div></section>
+
+    <section class="section"><div class="container"><div class="section-head"><div><h2>À qui s’adresse Archiposte ?</h2><p>Le site est pensé pour plusieurs publics qui se croisent autour des mêmes métiers.</p></div></div><div class="audience-grid"><article class="audience-card"><h3>Professionnels</h3><p>Archivistes, records managers, spécialistes de l’archivage numérique, gestionnaires documentaires et fonctions voisines.</p><span class="tag">Chercher & évoluer</span></article><article class="audience-card"><h3>Étudiants & jeunes diplômés</h3><p>Découvrir les métiers, comprendre les débouchés et identifier stages, alternances ou premiers emplois.</p><span class="tag">Découvrir & débuter</span></article><article class="audience-card"><h3>Employeurs</h3><p>Collectivités, administrations, entreprises, associations et institutions souhaitant toucher un public spécialisé.</p><span class="tag">Recruter</span></article></div></div></section>
+
+    <section class="section" style="padding-top:0"><div class="container independence"><article class="independence-card dark"><h2>Indépendant & transparent</h2><p>Archiposte est un projet indépendant. Le site n’est pas une plateforme de candidature : les annonces restent la propriété de leurs diffuseurs respectifs et les liens renvoient vers leurs sources.</p></article><article class="independence-card"><h2>Un projet encore en construction</h2><p>La version actuelle est volontairement évolutive. Les fonctionnalités visibles aujourd’hui ne constituent qu’un premier socle : carte, alertes, fiches métiers, salaires ou observatoire pourront venir progressivement.</p></article></div></section>
+
+    <section class="section" style="padding-top:0"><div class="container"><div class="section-head"><div><h2>La suite</h2><p>Une feuille de route ouverte, sans figer le site trop tôt.</p></div></div><div class="roadmap-grid"><article class="roadmap-card"><span class="status now">Maintenant</span><h3>Le socle</h3><ul><li>Offres centralisées et filtrables</li><li>Page Métiers</li><li>Publication d’une offre</li></ul></article><article class="roadmap-card"><span class="status next">Ensuite</span><h3>La veille</h3><ul><li>Alertes emploi personnalisées</li><li>Carte des offres</li><li>Fiches métiers détaillées</li></ul></article><article class="roadmap-card"><span class="status later">Plus tard</span><h3>L’observation du secteur</h3><ul><li>Salaires & tendances</li><li>Employeurs</li><li>Observatoire de l’emploi</li></ul></article></div></div></section>
+
+    <div class="container" id="contact"><section class="contact"><div><h2>Une remarque, une correction, une idée ?</h2><p>Archiposte est encore en phase de construction et les retours sont utiles.</p></div><a href="mailto:archiposte@proton.me">archiposte@proton.me</a></section></div>
+  </main>
+
+  <div class="modal-backdrop" id="contactBackdrop" aria-hidden="true">
+    <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <div class="contact-modal-head">
+        <div>
+          <h2 id="contactTitle">Nous écrire</h2>
+          <p>Une correction, une suggestion ou un problème à signaler ?</p>
+        </div>
+        <button class="modal-close" id="closeContact" type="button" aria-label="Fermer">×</button>
+      </div>
+
+      <div class="contact-modal-body">
+        <form id="contactForm">
+          <div class="contact-form-grid">
+            <div class="contact-field">
+              <label for="c_nom">Nom / prénom</label>
+              <input id="c_nom" name="nom" maxlength="160" placeholder="Facultatif">
+            </div>
+
+            <div class="contact-field">
+              <label for="c_email">E-mail</label>
+              <input id="c_email" name="email" type="email" maxlength="200" placeholder="Facultatif">
+              <p class="contact-help">À renseigner uniquement si vous souhaitez une réponse.</p>
+            </div>
+
+            <div class="contact-field full">
+              <label for="c_objet">Objet *</label>
+              <select id="c_objet" name="objet" required>
+                <option value="">Choisir un objet</option>
+                <option value="Correction">Correction</option>
+                <option value="Suggestion">Suggestion</option>
+                <option value="Problème technique">Problème technique</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="contact-field full">
+              <label for="c_message">Message *</label>
+              <textarea id="c_message" name="message" required maxlength="5000" placeholder="Votre message…"></textarea>
+              <p class="contact-help">
+                Les informations transmises sont utilisées uniquement pour traiter votre message.
+                <a href="confidentialite.html" target="_blank" rel="noopener" style="text-decoration:underline">Confidentialité</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-form-actions">
+            <button class="contact-submit" id="contactSubmit" type="submit">Envoyer le message</button>
+            <span class="contact-status" id="contactStatus"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer><div class="container footer-grid"><span>Archiposte · version test</span><div class="footer-links"><a href="#contact">À propos / Contact</a><a href="mailto:archiposte@proton.me">Contact</a><a href="confidentialite.html">Confidentialité</a></div></div></footer>
+
+  <script>
+    const SUPABASE_URL = "https://wcznshhziuvqawdhqxpk.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_G2wPyPyfJhbGL27PKxDrFg_gC7jLnwY";
+
+    const openContactButton = document.getElementById("openContact");
+    const contactBackdrop = document.getElementById("contactBackdrop");
+    const closeContactButton = document.getElementById("closeContact");
+    const contactForm = document.getElementById("contactForm");
+    const contactSubmit = document.getElementById("contactSubmit");
+    const contactStatus = document.getElementById("contactStatus");
+
+    function openContact(){
+      contactStatus.textContent = "";
+      contactStatus.className = "contact-status";
+      contactBackdrop.classList.add("open");
+      contactBackdrop.setAttribute("aria-hidden","false");
+      document.body.classList.add("modal-open");
+      setTimeout(() => document.getElementById("c_objet").focus(), 50);
+    }
+
+    function closeContact(){
+      contactBackdrop.classList.remove("open");
+      contactBackdrop.setAttribute("aria-hidden","true");
+      document.body.classList.remove("modal-open");
+    }
+
+    async function sendContact(event){
+      event.preventDefault();
+
+      contactSubmit.disabled = true;
+      contactSubmit.textContent = "Envoi…";
+      contactStatus.textContent = "";
+      contactStatus.className = "contact-status";
+
+      const form = new FormData(contactForm);
+      const value = name => {
+        const v = String(form.get(name) || "").trim();
+        return v === "" ? null : v;
+      };
+
+      const payload = {
+        nom: value("nom"),
+        email: value("email"),
+        objet: value("objet"),
+        message: value("message"),
+        statut: "nouveau"
+      };
+
+      try{
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/messages_contact`, {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_KEY,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if(!response.ok){
+          const details = await response.text();
+          throw new Error(details || `Erreur ${response.status}`);
+        }
+
+        contactForm.reset();
+        contactStatus.textContent = "Message envoyé. Merci pour votre retour.";
+        contactStatus.className = "contact-status success";
+      }catch(error){
+        console.error(error);
+        contactStatus.textContent = "L’envoi n’est pas encore disponible. La table Supabase doit être créée.";
+        contactStatus.className = "contact-status error";
+      }finally{
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = "Envoyer le message";
+      }
+    }
+
+    openContactButton.addEventListener("click", openContact);
+    closeContactButton.addEventListener("click", closeContact);
+    contactBackdrop.addEventListener("click", event => {
+      if(event.target === contactBackdrop) closeContact();
+    });
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape" && contactBackdrop.classList.contains("open")) closeContact();
+    });
+    contactForm.addEventListener("submit", sendContact);
+  </script>
+
+</body>
+</html>

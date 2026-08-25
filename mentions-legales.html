@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon-archiposte.png">
+  <title>Mentions légales — Archiposte</title>
+  <style>
+:root{
+  --paper:#f5f1e8;--paper2:#fbf8f2;--ink:#102a21;--muted:#66736d;
+  --green:#0d5a45;--green-dark:#073e31;--green-soft:#edf2e7;
+  --warm:#9a5d30;--line:#dedbd3;--white:#fffdfa;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.topbar{background:#062f25;color:#fff;font-size:.78rem}
+.topbar .container{height:35px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.topbar strong{font-weight:850}
+.topbar span:last-child{opacity:.88}
+header{border-bottom:1px solid var(--line);background:#f8f5ed}
+.nav{height:96px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand img{width:58px;height:58px;object-fit:contain}
+.brand-name{font-size:2.55rem;font-weight:800;line-height:1;letter-spacing:-.048em;color:#111f1a}
+.navlinks{display:flex;gap:38px;align-items:center;font-weight:800;font-size:.9rem}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--green)}
+.publish{border:1px solid var(--green);border-radius:8px;padding:12px 18px;color:var(--green)}
+.hero{padding:48px 0 34px;background:linear-gradient(180deg,var(--paper2),var(--paper));border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--warm);font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+h1{font:500 clamp(3rem,5vw,4.8rem)/.98 var(--serif);letter-spacing:-.045em;margin:0}
+.intro{max-width:790px;color:#475950;margin:17px 0 0;font-size:1rem}
+.content{padding:36px 0 58px}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:20px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.68);padding:17px}
+.toc strong{display:block;margin-bottom:10px;font-size:.8rem}
+.toc a{display:block;padding:7px 0;border-bottom:1px solid rgba(222,219,211,.7);color:var(--muted);font-size:.75rem;text-decoration:none}
+.toc a:last-child{border-bottom:0}
+.toc a:hover{color:var(--green)}
+.legal{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:30px}
+.legal section+section{border-top:1px solid var(--line);margin-top:28px;padding-top:28px}
+.legal h2{font:600 1.55rem var(--serif);margin:0 0 10px;letter-spacing:-.02em}
+.legal h3{margin:18px 0 7px;font-size:.9rem}
+.legal p,.legal li{font-size:.82rem;color:#526159}
+.legal p{margin:8px 0}
+.legal ul{margin:9px 0;padding-left:20px}
+.legal strong{color:var(--ink)}
+.legal a{text-underline-offset:2px}
+.legal table{width:100%;border-collapse:collapse;margin-top:13px;font-size:.76rem}
+.legal th,.legal td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+.legal th{background:#f6f3ec;color:var(--ink)}
+.pending{
+  margin-bottom:22px;padding:15px 17px;border:1px solid #e4d4be;border-radius:9px;
+  background:#faf1e6;color:#755039;font-size:.76rem;line-height:1.6
+}
+.goodnote{
+  padding:14px 16px;border-radius:9px;background:#eef3ec;border:1px solid #d8e1da;
+  color:#40564b;font-size:.77rem;line-height:1.6
+}
+footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:.78rem}
+.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{text-decoration:none}
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr}.toc{position:static}
+  .navlinks{gap:18px}.navlinks a:not(.publish){display:none}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 26px,1180px)}
+  .brand img{width:50px;height:50px}.brand-name{font-size:2.15rem}
+  .topbar span:last-child{display:none}.legal{padding:20px}
+  .legal table{display:block;overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span>
+    <span>Les annonces renvoient vers leur source originale</span>
+  </div>
+</div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Archiposte — Accueil">
+      <img src="favicon-archiposte.png" alt="">
+      <span class="brand-name">Archiposte</span>
+    </a>
+    <nav class="navlinks" aria-label="Navigation principale">
+      <a href="offres.html">Offres</a>
+      <a href="metiers.html">Métiers</a>
+      <a href="projet.html">Le projet</a>
+      <a class="publish" href="publier.html">Publier une offre</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Informations légales</div>
+    <h1>Mentions légales</h1>
+    <p class="intro">Informations relatives à l’édition, à l’hébergement, au stockage des données et au fonctionnement du site archiposte.fr.</p>
+  </div>
+</section>
+
+<main class="content">
+  <div class="container layout">
+    <aside class="toc">
+      <strong>Sur cette page</strong>
+      <a href="#edition">Édition</a>
+      <a href="#publication">Direction de publication</a>
+      <a href="#hebergement">Hébergement</a>
+      <a href="#stockage">Stockage des données</a>
+      <a href="#objet">Objet</a>
+      <a href="#annonces">Annonces</a>
+      <a href="#propriete">Propriété intellectuelle</a>
+      <a href="#responsabilite">Responsabilité</a>
+      <a href="#contact">Contact et droit de réponse</a>
+    </aside>
+
+    <article class="legal">
+      <div class="pending">
+        <strong>Point restant en cours de confirmation auprès de Cloudflare :</strong>
+        Archiposte est édité à titre non professionnel. Les éléments d’identification personnelle requis par l’article 1-1 de la LCEN ont fait l’objet d’une démarche de communication à Cloudflare ; la confirmation du canal approprié par l’hébergeur est encore attendue. Cette mention sera simplifiée une fois ce point confirmé.
+      </div>
+
+      <section id="edition">
+        <h2>1. Édition du site</h2>
+        <p><strong>Archiposte</strong> est un service de communication au public en ligne édité par une personne physique à titre <strong>non professionnel</strong>, sans activité commerciale liée au site à ce jour.</p>
+        <p>En application de l’article 1-1, II de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN), l’éditeur non professionnel peut ne pas publier l’ensemble des éléments d’identification personnelle mentionnés au I du même article, sous réserve de les avoir communiqués au fournisseur de services d’hébergement.</p>
+        <p>Contact éditorial : <a href="projet.html#contact">formulaire « Nous écrire »</a> ou <a href="mailto:archiposte@proton.me">archiposte@proton.me</a>.</p>
+      </section>
+
+      <section id="publication">
+        <h2>2. Direction de la publication</h2>
+        <p><strong>Directeur de la publication : Valentin Laurent.</strong></p>
+      </section>
+
+      <section id="hebergement">
+        <h2>3. Fournisseur de services d’hébergement</h2>
+        <p><strong>Cloudflare, Inc.</strong><br>
+        101 Townsend St.<br>
+        San Francisco, CA 94107<br>
+        États-Unis<br>
+        Téléphone : +1 (650) 319-8930</p>
+        <p>Le site est déployé au moyen de Cloudflare Workers. Cloudflare indique que, lorsque le contenu est effectivement stocké au moyen de ses services tels que Workers ou Pages, Cloudflare peut agir comme fournisseur d’hébergement du contenu concerné.</p>
+      </section>
+
+      <section id="stockage">
+        <h2>4. Stockage des données applicatives</h2>
+        <p>Le stockage des données nécessaires aux fonctionnalités d’Archiposte, notamment les propositions d’offres et messages adressés au site, repose sur :</p>
+        <p><strong>SUPABASE PTE. LTD.</strong><br>
+        65 Chulia Street #38-02/03<br>
+        OCBC Centre<br>
+        Singapore 049513</p>
+        <p>Le projet Archiposte est déployé dans la région spécifique <strong>West EU (Ireland) — eu-west-1</strong>, qui détermine la localisation des données principales du projet.</p>
+      </section>
+
+      <section id="objet">
+        <h2>5. Objet d’Archiposte</h2>
+        <p>Archiposte est un site indépendant consacré à l’emploi dans les archives et la gestion de l’information, notamment les archives, le records management, l’archivage numérique et la gestion documentaire.</p>
+        <p>Le service est actuellement proposé gratuitement dans le cadre de sa phase de lancement.</p>
+      </section>
+
+      <section id="annonces">
+        <h2>6. Annonces, candidatures et sources</h2>
+        <p>Archiposte centralise, structure et signale des offres d’emploi provenant de sources externes ou proposées directement par des employeurs ou diffuseurs. Archiposte n’est pas l’employeur et <strong>ne reçoit pas les candidatures</strong>.</p>
+        <p>Les informations présentées ont une finalité informative. Malgré les vérifications effectuées, une annonce peut être modifiée, expirée ou comporter une erreur. <strong>En cas de divergence, la source originale de l’annonce fait foi</strong>, notamment concernant les conditions de candidature, la rémunération, les délais et les caractéristiques du poste.</p>
+        <p>Un employeur, diffuseur ou titulaire de droits peut demander une correction ou le retrait d’une annonce au moyen du <a href="projet.html#contact">formulaire de contact</a>.</p>
+      </section>
+
+      <section id="propriete">
+        <h2>7. Propriété intellectuelle</h2>
+        <p>Le nom Archiposte, son logo, son identité visuelle, ses textes de présentation, son organisation éditoriale et les éléments graphiques créés spécifiquement pour le site sont protégés dans la mesure prévue par le droit applicable.</p>
+        <p>Les dénominations, marques, logos et contenus provenant de tiers restent la propriété de leurs titulaires respectifs. Leur mention sur Archiposte n’implique aucun partenariat ou soutien lorsqu’aucun lien de cette nature n’est expressément indiqué.</p>
+      </section>
+
+      <section id="responsabilite">
+        <h2>8. Disponibilité et responsabilité</h2>
+        <p>Archiposte s’efforce de fournir des informations exactes et de maintenir le service accessible, sans pouvoir garantir l’exhaustivité, l’absence permanente d’erreur, la disponibilité continue d’une offre ou celle d’un site tiers.</p>
+        <p>Les liens externes conduisent vers des services placés sous la responsabilité de leurs éditeurs respectifs. Les utilisateurs doivent vérifier les informations déterminantes directement auprès de la source originale avant de candidater ou de prendre une décision.</p>
+      </section>
+
+      <section>
+        <h2>9. Données personnelles</h2>
+        <p>Les règles applicables aux formulaires, aux données techniques, aux durées de conservation et à l’exercice des droits sont détaillées dans la page <a href="confidentialite.html">Confidentialité</a>.</p>
+      </section>
+
+      <section id="contact">
+        <h2>10. Contact, correction et droit de réponse</h2>
+        <p>Pour signaler une erreur, demander une correction ou un retrait, ou adresser une demande relative à un contenu publié : <a href="projet.html#contact">formulaire « Nous écrire »</a> ou <a href="mailto:archiposte@proton.me">archiposte@proton.me</a>.</p>
+        <p>Ces modalités sont sans préjudice du droit de réponse prévu par la LCEN et des voies de recours prévues par la loi.</p>
+      </section>
+
+      <section>
+        <h2>11. Mise à jour</h2>
+        <p><strong>Dernière mise à jour : 25 août 2026.</strong></p>
+      </section>
+    </article>
+  </div>
+</main>
+
+
+<footer>
+  <div class="container footer-grid">
+    <span>Archiposte · version test</span>
+    <div class="footer-links">
+      <a href="projet.html#contact">À propos / Contact</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

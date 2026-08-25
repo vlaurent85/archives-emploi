@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon-archiposte.png">
+  <title>Archiposte — Le site d’emploi des professionnels des archives et de l’information</title>
+  <meta name="description" content="Archiposte centralise les offres d’emploi en archives, records management, archivage numérique et gestion de l’information.">
+  <style>
+    :root{
+      --paper:#f8f5ed;
+      --paper-2:#fbf9f4;
+      --white:#fffefa;
+      --ink:#10241d;
+      --muted:#53645c;
+      --green:#0b513e;
+      --green-dark:#063b2e;
+      --green-soft:#edf2e7;
+      --warm:#9a5d30;
+      --line:#dedbd3;
+      --shadow:0 12px 30px rgba(17,42,32,.07);
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:var(--sans);
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    svg{display:block}
+    .container{width:min(1360px,calc(100% - 40px));margin-inline:auto}
+
+    /* Bandeau supérieur */
+    .topbar{background:#062f25;color:#f8faf8;font-size:.78rem}
+    .topbar-inner{
+      height:35px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      white-space:nowrap;
+    }
+    .topbar strong{font-weight:850}
+    .topbar-right{opacity:.88}
+
+    /* Header */
+    header{background:rgba(248,245,237,.98);border-bottom:1px solid var(--line)}
+    .nav{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+    .brand{display:flex;align-items:center;gap:14px;min-width:max-content}
+    .brand img{width:58px;height:58px;object-fit:contain}
+    .brand-name{
+      font-weight:800;
+      font-size:2.55rem;
+      line-height:1;
+      letter-spacing:-.048em;
+      color:#111f1a;
+    }
+    .navlinks{display:flex;align-items:center;gap:42px;font-size:.91rem;font-weight:800}
+    .navlinks a:not(.publish):hover{color:var(--green)}
+    .publish{
+      border:1px solid var(--green);
+      border-radius:8px;
+      color:var(--green);
+      padding:12px 18px;
+      transition:.15s ease;
+    }
+    .publish:hover{background:var(--green);color:#fff}
+
+    /* Hero */
+    .hero{padding:29px 0 10px;background:linear-gradient(180deg,var(--paper-2),var(--paper))}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,.83fr) minmax(0,1fr);
+      gap:35px;
+      align-items:center;
+    }
+    .hero-copy{padding:2px 0 0}
+    .eyebrow{
+      margin:0 0 13px;
+      color:var(--warm);
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:0;
+      max-width:600px;
+      font-family:var(--serif);
+      font-size:clamp(3rem,3.62vw,3.55rem);
+      line-height:.98;
+      letter-spacing:-.043em;
+      font-weight:500;
+    }
+    .lead{
+      margin:20px 0 0;
+      max-width:615px;
+      color:#475950;
+      font-size:.96rem;
+      line-height:1.72;
+    }
+    .searchbar{
+      display:grid;
+      grid-template-columns:1.23fr .91fr auto;
+      gap:10px;
+      max-width:600px;
+      margin-top:29px;
+    }
+    .field{
+      min-width:0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      height:46px;
+      padding:0 13px;
+      border:1px solid #d8d6d0;
+      border-radius:8px;
+      background:#fff;
+      box-shadow:0 2px 7px rgba(20,35,28,.025);
+    }
+    .field svg{width:17px;height:17px;stroke:#1c332a;flex:0 0 auto}
+    .field input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);padding:0}
+    .field input::placeholder{color:#76817c}
+    .search-btn{
+      height:46px;
+      border:1px solid var(--green);
+      border-radius:8px;
+      padding:0 20px;
+      background:var(--green);
+      color:#fff;
+      cursor:pointer;
+      font-weight:850;
+      transition:.15s ease;
+    }
+    .search-btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
+    .countline{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin-top:18px;
+      color:#263a31;
+      font-size:.82rem;
+      font-weight:650;
+    }
+    .countline svg{width:16px;height:16px;stroke:var(--green);flex:0 0 auto}
+
+    .hero-art{
+      min-width:0;
+      overflow:hidden;
+      border-radius:11px;
+      border:1px solid rgba(15,73,56,.08);
+    }
+    .hero-art img{
+      display:block;
+      width:100%;
+      aspect-ratio:1.92/1;
+      object-fit:cover;
+      object-position:center 50%;
+      transform:scale(1.08);
+      transform-origin:center;
+    }
+
+    /* Dernières offres */
+    .section{padding:6px 0 16px}
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:22px;
+      margin-bottom:12px;
+    }
+    h2{margin:0;font-size:1.25rem;letter-spacing:-.022em;line-height:1.2}
+    .section-link{color:var(--green);font-weight:850;font-size:.81rem;white-space:nowrap}
+    .section-link:hover{text-decoration:underline}
+
+    .jobs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .job-card{
+      min-height:134px;
+      display:flex;
+      flex-direction:column;
+      padding:14px 16px 13px;
+      background:rgba(255,255,255,.61);
+      border:1px solid var(--line);
+      border-radius:9px;
+      transition:.15s ease;
+    }
+    .job-card:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-1px)}
+    .job-top{display:flex;gap:13px;align-items:flex-start}
+    .job-icon{
+      width:43px;height:43px;
+      display:grid;place-items:center;
+      border-radius:7px;
+      background:#eef1e8;
+      color:var(--green);
+      flex:0 0 auto;
+    }
+    .job-icon svg{width:25px;height:25px;stroke:currentColor}
+    .job-title{margin:1px 0 1px;font-size:.98rem;font-weight:850;line-height:1.24}
+    .job-employer{font-size:.77rem;color:#34463e;line-height:1.35}
+    .job-meta{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin:10px 0 0 56px;
+      color:#78817d;
+      font-size:.7rem;
+    }
+    .job-meta span{display:flex;align-items:center;gap:5px}
+    .job-meta svg{width:13px;height:13px;stroke:currentColor}
+    .job-bottom{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:9px}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      border-radius:5px;
+      background:#e5efde;
+      color:#245d43;
+      padding:3px 7px;
+      font-size:.66rem;
+      font-weight:900;
+    }
+    .age{font-size:.68rem;color:#68746e}
+    .job-empty{grid-column:1/-1;padding:28px;text-align:center;border:1px dashed var(--line);border-radius:9px;color:var(--muted)}
+
+    /* Partie basse */
+    .lower-section{padding:10px 0 18px}
+    .lower-grid{
+      display:grid;
+      grid-template-columns:1.24fr .93fr .67fr;
+      gap:29px;
+      align-items:stretch;
+    }
+    .block-title-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:13px}
+    .metiers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .metier{text-align:center;font-size:.72rem;line-height:1.35;color:#22352c}
+    .metier-icon{
+      height:64px;
+      display:grid;place-items:center;
+      margin-bottom:7px;
+      border-radius:8px;
+      background:#f0eee7;
+      color:var(--green);
+      transition:.15s ease;
+    }
+    .metier:hover .metier-icon{background:#e7ede4;transform:translateY(-1px)}
+    .metier-icon svg{width:30px;height:30px;stroke:currentColor}
+
+    .project-block{padding-left:28px;border-left:1px solid var(--line)}
+    .project-line{display:flex;gap:14px;align-items:flex-start;margin-top:15px}
+    .project-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:7px;background:#eef1e8;color:var(--green);flex:0 0 auto}
+    .project-icon svg{width:25px;height:25px;stroke:currentColor}
+    .project-block p{margin:0;color:#263a31;font-size:.76rem;line-height:1.55}
+    .project-block .section-link{display:inline-block;margin-top:15px}
+
+    .recruit{
+      min-height:167px;
+      padding:18px 21px;
+      border:1px solid #e3e7dd;
+      border-radius:9px;
+      background:linear-gradient(135deg,#eef2e8,#f5f5ed);
+    }
+    .recruit h2{font-size:1rem}
+    .recruit p{margin:8px 0 12px;color:#2f4339;font-size:.76rem;line-height:1.5}
+    .recruit .button{display:inline-flex;background:var(--green);color:#fff;border-radius:7px;padding:9px 14px;font-weight:850;font-size:.76rem}
+    .recruit-note{display:flex;align-items:center;gap:6px;margin-top:10px;color:#4f6058;font-size:.68rem}
+    .recruit-note svg{width:15px;height:15px;stroke:var(--green)}
+
+    /* Barre de confiance */
+    .trustbar{border-top:1px solid var(--line);background:rgba(255,255,255,.23)}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:25px 0 24px}
+    .trust{display:flex;align-items:center;justify-content:center;gap:13px}
+    .trust svg{width:35px;height:35px;stroke:var(--green);flex:0 0 auto}
+    .trust strong{display:block;font-size:.79rem}
+    .trust span{display:block;margin-top:2px;color:#596861;font-size:.68rem}
+
+    footer{padding:18px 0 28px;color:#68746e;font-size:.73rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer-links a:hover{color:var(--green)}
+
+    @media(max-width:1100px){
+      .hero-grid{grid-template-columns:1fr;gap:25px}
+      .hero-art{max-width:850px}
+      .searchbar{max-width:760px}
+      .lower-grid{grid-template-columns:1fr 1fr}
+      .recruit{grid-column:1/-1}
+      .project-block{border-left:0;padding-left:0}
+    }
+    @media(max-width:780px){
+      .container{width:min(100% - 28px,1360px)}
+      .topbar-right{display:none}
+      .topbar-inner{height:32px;font-size:.72rem}
+      .nav{height:72px}
+      .brand img{width:43px;height:43px}
+      .brand-name{font-size:2rem}
+      .navlinks{gap:15px}
+      .navlinks a:not(.publish){display:none}
+      .hero{padding-top:26px}
+      h1{font-size:3rem}
+      .searchbar{grid-template-columns:1fr}
+      .search-btn{height:46px}
+      .hero-art img{aspect-ratio:1.55/1;object-position:center}
+      .jobs-grid{grid-template-columns:1fr}
+      .job-meta{margin-left:0}
+      .lower-grid{grid-template-columns:1fr}
+      .metiers{grid-template-columns:repeat(3,1fr)}
+      .recruit{grid-column:auto}
+      .trust-grid{grid-template-columns:1fr;padding:20px 0}
+      .trust{justify-content:flex-start}
+    }
+    @media(max-width:500px){
+      .brand-name{font-size:1.7rem}
+      .publish{padding:10px 12px;font-size:.82rem}
+      h1{font-size:2.75rem}
+      .metiers{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span>
+      <span class="topbar-right">Les annonces renvoient vers leur source originale</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Archiposte — Accueil">
+        <img src="favicon-archiposte.png" alt="">
+        <span class="brand-name">Archiposte</span>
+      </a>
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="offres.html">Offres</a>
+        <a href="metiers.html">Métiers</a>
+        <a href="projet.html">Le projet</a>
+        <a class="publish" href="publier.html">Publier une offre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Archives · Records management · Archivage numérique</div>
+          <h1>Chaque métier mérite son propre site d’emploi</h1>
+          <p class="lead">Une sélection d’offres pensée pour les professionnels des archives et de l’information : secteur public et privé, archives, records management, archivage numérique et gestion de l’information.</p>
+
+          <form class="searchbar" id="homeSearch">
+            <label class="field">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <input id="homeQ" type="search" placeholder="Métier, employeur, compétence…" aria-label="Métier, employeur ou compétence">
+            </label>
+            <label class="field">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+              <input id="homeLoc" type="search" placeholder="Ville ou télétravail" aria-label="Ville ou télétravail">
+            </label>
+            <button class="search-btn" type="submit">Rechercher</button>
+          </form>
+
+          <div class="countline">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 7h16v12H4z"></path><path d="M8 7V5h8v2M8 11h8"></path></svg>
+            <span><strong id="homeCount">…</strong> offres actuellement visibles sur Archiposte.</span>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <img src="hero-archiposte-reseau.png" alt="Illustration d’un réseau national d’opportunités avec une carte de France, des boîtes d’archives et un ordinateur portable">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Dernières offres</h2>
+          <a class="section-link" href="offres.html">Voir toutes les offres →</a>
+        </div>
+        <div class="jobs-grid" id="latestJobs">
+          <div class="job-empty">Chargement des dernières offres…</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lower-section">
+      <div class="container lower-grid">
+        <div>
+          <div class="block-title-row">
+            <h2>Métiers</h2>
+            <a class="section-link" href="metiers.html">Voir tous les métiers →</a>
+          </div>
+          <div class="metiers">
+            <a class="metier" href="metiers.html#archiviste">
+              <div class="metier-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 6h6l2 2h10v11H3z"></path></svg></div>
+              Archiviste
+            </a>
+            <a class="metier" href="metiers.html#records-manager">
+              <div class="metier-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h16v4H4zM6 9h12v10H6z"></path><path d="M10 13h4"></path></svg></div>
+              Records<br>Manager
+            </a>
+            <a class="metier" href="metiers.html#gestionnaire">
+              <div class="metier-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="1"></rect><path d="M8 21h8M12 17v4"></path></svg></div>
+              Gestionnaire<br>de l’information
+            </a>
+            <a class="metier" href="metiers.html#archiviste-numerique">
+              <div class="metier-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M7 18h10a4 4 0 0 0 .3-8A6 6 0 0 0 5.8 8.8 4.7 4.7 0 0 0 7 18Z"></path></svg></div>
+              Archiviste<br>numérique
+            </a>
+            <a class="metier" href="metiers.html#responsable">
+              <div class="metier-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 9h18M5 9v10M9 9v10M15 9v10M19 9v10M3 19h18M2 7l10-5 10 5z"></path></svg></div>
+              Responsable<br>d’archives
+            </a>
+          </div>
+        </div>
+
+        <div class="project-block">
+          <h2>Le projet</h2>
+          <div class="project-line">
+            <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 6h6l2 2h10v11H3z"></path></svg></div>
+            <div>
+              <p>Archiposte est un projet indépendant porté par des professionnels des archives et de l’information.</p>
+              <a class="section-link" href="projet.html">En savoir plus →</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="recruit">
+          <h2>Vous recrutez ?</h2>
+          <p>Diffusez votre offre d’emploi en quelques minutes.</p>
+          <a class="button" href="publier.html">Publier une offre</a>
+          <div class="recruit-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            Gratuit et sans engagement
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trustbar">
+      <div class="container trust-grid">
+        <div class="trust">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><path d="M12 12 21 3"></path></svg>
+          <div><strong>Ciblé & spécialisé</strong><span>Des offres sélectionnées pour notre communauté</span></div>
+        </div>
+        <div class="trust">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>
+          <div><strong>À jour chaque jour</strong><span>De nouvelles annonces en continu</span></div>
+        </div>
+        <div class="trust">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"></path></svg>
+          <div><strong>Indépendant & transparent</strong><span>Vos données restent confidentielles</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© Archiposte · version test</span>
+      <div class="footer-links">
+        <a href="projet.html#contact">À propos / Contact</a>
+        <a href="mailto:archiposte@proton.me">Contact</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const SUPABASE_URL = "https://wcznshhziuvqawdhqxpk.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_G2wPyPyfJhbGL27PKxDrFg_gC7jLnwY";
+
+    const escapeHtml = (value = "") =>
+      String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+
+    function isCurrentOffer(o){
+      if(!o.date_limite) return true;
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      return new Date(o.date_limite + "T23:59:59") >= today;
+    }
+
+    function locationText(o){
+      const seen = new Set();
+      return [o.ville,o.departement,o.region]
+        .filter(Boolean)
+        .filter(value => {
+          const key = String(value).trim().toLocaleLowerCase("fr");
+          if(!key || seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        })
+        .join(" · ");
+    }
+
+    function relativeAge(o){
+      const raw = o.date_publication || o.created_at;
+      if(!raw) return "";
+      const date = new Date(raw);
+      if(Number.isNaN(date.getTime())) return "";
+      const days = Math.max(0,Math.floor((Date.now() - date.getTime()) / 86400000));
+      if(days === 0) return "Aujourd’hui";
+      if(days === 1) return "Il y a 1 jour";
+      return `Il y a ${days} jours`;
+    }
+
+    function iconFor(o){
+      const text = [o.titre,o.specialite].filter(Boolean).join(" ").toLowerCase();
+      if(text.includes("record") || text.includes("numér") || text.includes("numer") || text.includes("document")){
+        return '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="1"></rect><path d="M8 21h8M12 17v4"></path></svg>';
+      }
+      if(text.includes("responsable") || text.includes("chef")){
+        return '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 6h6l2 2h10v11H3z"></path></svg>';
+      }
+      return '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 9h18M5 9v10M9 9v10M15 9v10M19 9v10M3 19h18M2 7l10-5 10 5z"></path></svg>';
+    }
+
+    const locationIcon = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>';
+    const remoteIcon = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="1"></rect><path d="M8 21h8M12 17v4"></path></svg>';
+
+    document.getElementById("homeSearch").addEventListener("submit", event => {
+      event.preventDefault();
+      const q = document.getElementById("homeQ").value.trim();
+      const loc = document.getElementById("homeLoc").value.trim();
+      const combined = [q,loc].filter(Boolean).join(" ");
+      window.location.href = "offres.html" + (combined ? "?q=" + encodeURIComponent(combined) : "");
+    });
+
+    async function loadHome(){
+      const jobs = document.getElementById("latestJobs");
+      const count = document.getElementById("homeCount");
+
+      try{
+        const endpoint = `${SUPABASE_URL}/rest/v1/offres?select=*&active=eq.true&order=date_publication.desc.nullslast,created_at.desc`;
+        const response = await fetch(endpoint,{headers:{apikey:SUPABASE_KEY}});
+        if(!response.ok) throw new Error(`Supabase ${response.status}`);
+
+        const offers = (await response.json()).filter(isCurrentOffer);
+        count.textContent = offers.length;
+
+        const latest = offers.slice(0,3);
+        if(!latest.length){
+          jobs.innerHTML = '<div class="job-empty">Aucune offre active pour le moment.</div>';
+          return;
+        }
+
+        jobs.innerHTML = latest.map(o => {
+          const location = locationText(o);
+          const remote = o.teletravail ? String(o.teletravail) : "";
+          const contract = o.type_contrat || o.statut || "";
+          const age = relativeAge(o);
+          const query = encodeURIComponent(o.titre || "");
+
+          return `
+            <a class="job-card" href="offres.html?q=${query}" aria-label="Voir l’offre ${escapeHtml(o.titre || "")}">
+              <div class="job-top">
+                <div class="job-icon">${iconFor(o)}</div>
+                <div>
+                  <div class="job-title">${escapeHtml(o.titre || "Offre")}</div>
+                  <div class="job-employer">${escapeHtml(o.employeur || "")}</div>
+                </div>
+              </div>
+              <div class="job-meta">
+                ${location ? `<span>${locationIcon}${escapeHtml(location)}</span>` : ""}
+                ${remote ? `<span>${remoteIcon}${escapeHtml(remote)}</span>` : ""}
+              </div>
+              <div class="job-bottom">
+                ${contract ? `<span class="tag">${escapeHtml(contract)}</span>` : ""}
+                ${age ? `<span class="age">${escapeHtml(age)}</span>` : ""}
+              </div>
+            </a>`;
+        }).join("");
+      }catch(error){
+        console.error(error);
+        count.textContent = "—";
+        jobs.innerHTML = '<div class="job-empty">Impossible de charger les offres pour le moment.</div>';
+      }
+    }
+
+    loadHome();
+  </script>
+</body>
+</html>

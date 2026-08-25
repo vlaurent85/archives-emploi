@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-archiposte.png">
+<title>Publier une offre — Archiposte</title>
+<meta name="description" content="Proposer une offre d’emploi en archives, records management, archivage numérique ou gestion de l’information sur Archiposte.">
+<style>
+:root{--paper:#f5f1e8;--paper-2:#fbf8f2;--ink:#102a21;--muted:#66736d;--green:#0d5a45;--green-dark:#073e31;--green-soft:#edf2e7;--warm:#9a5d30;--line:#dedbd3;--white:#fffdfa;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.5}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.container{width:min(1360px,calc(100% - 40px));margin:auto}
+.topbar{background:#062f25;color:#f8faf8;font-size:.78rem}.topbar-inner{height:35px;display:flex;align-items:center;justify-content:space-between;gap:24px}.topbar strong{font-weight:850}.topbar-right{opacity:.88}
+header{background:rgba(248,245,237,.98);border-bottom:1px solid var(--line)}.nav{height:96px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:14px}.brand img{width:58px;height:58px;object-fit:contain}.brand-name{font-weight:800;font-size:2.55rem;line-height:1;letter-spacing:-.048em;color:#111f1a}.navlinks{display:flex;align-items:center;gap:42px;font-size:.91rem;font-weight:800}.publish{border:1px solid var(--green);border-radius:8px;color:#fff;background:var(--green);padding:12px 18px}
+.hero{padding:46px 0 34px;background:radial-gradient(circle at 82% 25%,rgba(13,90,69,.07),transparent 28%),linear-gradient(180deg,var(--paper-2),var(--paper));border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);gap:60px;align-items:center}.eyebrow{margin:0 0 12px;color:var(--warm);font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}h1{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,4.6vw,5rem);line-height:.97;letter-spacing:-.045em}.intro{margin:18px 0 0;max-width:760px;color:#475950;font-size:1rem;line-height:1.72}
+.promise{border:1px solid var(--line);border-radius:15px;background:#fffdfa;padding:24px}.promise h2{margin:0 0 14px;font-family:var(--serif);font-size:1.55rem;font-weight:500}.promise-list{display:grid;gap:13px}.promise-item{display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px}.promise-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);color:var(--green)}.promise-icon svg{width:20px;height:20px;stroke:currentColor}.promise-item strong{display:block;font-size:.8rem}.promise-item span{display:block;margin-top:2px;color:var(--muted);font-size:.72rem;line-height:1.45}
+.section{padding:38px 0 56px}.publish-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start}.side{position:sticky;top:18px;display:grid;gap:14px}.side-card{border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.68);padding:18px}.side-card h3{margin:0;font-family:var(--serif);font-size:1.2rem}.side-card p,.side-card ul{color:var(--muted);font-size:.74rem;line-height:1.6}.side-card ul{padding-left:18px}.free-badge{display:inline-flex;margin-top:10px;padding:5px 8px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.form-panel{border:1px solid var(--line);border-radius:13px;background:#fffdfa;padding:26px}.form-panel-head{padding-bottom:19px;margin-bottom:20px;border-bottom:1px solid var(--line)}.form-panel-head h2{margin:0;font-family:var(--serif);font-size:1.85rem;font-weight:500}.form-panel-head p{margin:7px 0 0;color:var(--muted);font-size:.78rem}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.field input,.field select,.field textarea{width:100%;border:1px solid #d8d6d0;background:#fff;color:var(--ink);border-radius:8px;padding:11px 12px;outline:0}.field textarea{min-height:125px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#9ab6ab;box-shadow:0 0 0 3px rgba(13,90,69,.08)}.help{margin:0;color:var(--muted);font-size:.69rem;line-height:1.5}.actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px;padding-top:19px;border-top:1px solid var(--line)}.submit{border:1px solid var(--green);background:var(--green);color:#fff;border-radius:8px;padding:11px 16px;font-weight:850;cursor:pointer}.submit:hover{background:var(--green-dark)}.submit:disabled{opacity:.6}.status{font-size:.77rem;color:var(--muted)}.status.success{color:var(--green)}.status.error{color:#a13d32}.note{margin-top:16px;padding:16px 18px;border-radius:10px;background:#f8f5ed;border:1px solid var(--line);color:#526159;font-size:.74rem;line-height:1.6}
+footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:.78rem}.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:1000px){.hero-grid,.publish-layout{grid-template-columns:1fr}.side{position:static;grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.topbar-right{display:none}.container{width:min(100% - 26px,1360px)}.nav{height:82px}.brand img{width:50px;height:50px}.brand-name{font-size:2.15rem}.navlinks{gap:18px}.navlinks a:not(.publish){display:none}.hero{padding-top:30px}h1{font-size:3.05rem}.form-grid,.side{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container topbar-inner"><span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span><span class="topbar-right">Les annonces renvoient vers leur source originale</span></div></div>
+<header><div class="container nav"><a class="brand" href="index.html"><img src="favicon-archiposte.png" alt=""><span class="brand-name">Archiposte</span></a><nav class="navlinks"><a href="offres.html">Offres</a><a href="metiers.html">Métiers</a><a href="projet.html">Le projet</a><a class="publish" href="publier.html">Publier une offre</a></nav></div></header>
+
+<main>
+<section class="hero"><div class="container hero-grid">
+<div><div class="eyebrow">Employeurs · Recrutement</div><h1>Publier une offre sur Archiposte</h1><p class="intro">Vous recrutez dans les archives, le records management, l’archivage numérique ou la gestion de l’information ? Proposez votre annonce : elle sera vérifiée avant toute publication.</p></div>
+<aside class="promise"><h2>Pourquoi publier ici ?</h2><div class="promise-list">
+<div class="promise-item"><div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="m8 12 2.5 2.5L16 9"/></svg></div><div><strong>Un public spécialisé</strong><span>Une audience directement intéressée par les métiers des archives et de l’information.</span></div></div>
+<div class="promise-item"><div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h6"/></svg></div><div><strong>Une annonce structurée</strong><span>Les informations essentielles sont harmonisées pour faciliter la lecture et la comparaison.</span></div></div>
+<div class="promise-item"><div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3v18M5 8h14M5 16h14"/></svg></div><div><strong>Gratuit pendant le lancement</strong><span>Aucun paiement ni engagement pendant la phase de lancement.</span></div></div>
+</div></aside>
+</div></section>
+
+<section class="section"><div class="container publish-layout">
+<aside class="side">
+<div class="side-card"><h3>Avant l’envoi</h3><p>Vérifiez que l’annonce est toujours active et qu’un lien vers sa source originale est disponible.</p><ul><li>Intitulé clair</li><li>Employeur identifié</li><li>Lien source obligatoire</li><li>Informations vérifiables</li></ul></div>
+<div class="side-card"><h3>Après l’envoi</h3><p>La proposition n’est pas publiée automatiquement. Elle est d’abord vérifiée puis intégrée au site si elle correspond au périmètre d’Archiposte.</p><span class="free-badge">Publication gratuite</span></div>
+</aside>
+
+<section class="form-panel">
+<div class="form-panel-head"><h2>Informations sur l’offre</h2><p>Les champs marqués d’un astérisque sont nécessaires au traitement de votre proposition.</p></div>
+<form id="submitForm"><div class="form-grid">
+<div class="field full"><label for="p_titre">Intitulé du poste *</label><input id="p_titre" name="titre" required maxlength="200" placeholder="Ex. Archiviste chargé de collecte"></div>
+<div class="field"><label for="p_employeur">Employeur *</label><input id="p_employeur" name="employeur" required maxlength="200"></div>
+<div class="field"><label for="p_ville">Ville</label><input id="p_ville" name="ville" maxlength="120"></div>
+<div class="field"><label for="p_departement">Département</label><input id="p_departement" name="departement" maxlength="120"></div>
+<div class="field"><label for="p_region">Région</label><input id="p_region" name="region" maxlength="120"></div>
+<div class="field"><label for="p_contrat">Contrat</label><input id="p_contrat" name="type_contrat" maxlength="100" placeholder="CDD, CDI, emploi permanent…"></div>
+<div class="field"><label for="p_statut">Statut</label><input id="p_statut" name="statut" maxlength="120" placeholder="Titulaire / contractuel…"></div>
+<div class="field"><label for="p_secteur">Secteur</label><select id="p_secteur" name="secteur"><option value="">Non renseigné</option><option value="Public">Public</option><option value="Privé">Privé</option><option value="Associatif">Associatif</option></select></div>
+<div class="field"><label for="p_categorie">Catégorie</label><input id="p_categorie" name="categorie" maxlength="40" placeholder="A, B, A / B…"></div>
+<div class="field"><label for="p_specialite">Spécialité</label><input id="p_specialite" name="specialite" maxlength="120" placeholder="Archives, Records management…"></div>
+<div class="field"><label for="p_teletravail">Télétravail</label><input id="p_teletravail" name="teletravail" maxlength="120" placeholder="Non, partiel, 2 jours/semaine…"></div>
+<div class="field"><label for="p_salaire">Salaire</label><input id="p_salaire" name="salaire" maxlength="160"></div>
+<div class="field"><label for="p_date_limite">Date limite</label><input id="p_date_limite" name="date_limite" type="date"></div>
+<div class="field full"><label for="p_url">Lien vers l’offre originale *</label><input id="p_url" name="url_source" type="url" required placeholder="https://…"></div>
+<div class="field full"><label for="p_email">Votre e-mail *</label><input id="p_email" name="email_contact" type="email" required maxlength="200" placeholder="Utilisé uniquement pour la vérification"><p class="help">Cette adresse n’est jamais publiée. Elle est utilisée uniquement pour vérifier et gérer votre proposition. <a href="confidentialite.html" target="_blank" rel="noopener" style="text-decoration:underline">Confidentialité</a>.</p></div>
+<div class="field full"><label for="p_commentaire">Précisions éventuelles</label><textarea id="p_commentaire" name="commentaire" maxlength="1500" placeholder="Informations utiles pour la vérification de l’annonce…"></textarea></div>
+</div>
+<div class="actions"><button class="submit" id="submitOfferButton" type="submit">Envoyer l’offre</button><span class="status" id="submitStatus"></span></div>
+</form>
+<div class="note">Archiposte centralise et structure les annonces, mais ne reçoit pas les candidatures. Les candidats seront redirigés vers le lien original que vous fournissez.</div>
+</section>
+</div></section>
+</main>
+
+<footer><div class="container footer-grid"><span>Archiposte · version test</span><div class="footer-links"><a href="projet.html#contact">À propos / Contact</a><a href="mailto:archiposte@proton.me">Contact</a><a href="confidentialite.html">Confidentialité</a></div></div></footer>
+
+<script>
+const SUPABASE_URL="https://wcznshhziuvqawdhqxpk.supabase.co";
+const SUPABASE_KEY="sb_publishable_G2wPyPyfJhbGL27PKxDrFg_gC7jLnwY";
+const submitForm=document.getElementById("submitForm");
+const submitStatus=document.getElementById("submitStatus");
+const submitOfferButton=document.getElementById("submitOfferButton");
+
+async function sendProposal(event){
+  event.preventDefault();
+  submitOfferButton.disabled=true;
+  submitOfferButton.textContent="Envoi…";
+  submitStatus.textContent="";
+  submitStatus.className="status";
+
+  const form=new FormData(submitForm);
+  const value=name=>{const v=String(form.get(name)||"").trim();return v===""?null:v};
+
+  const payload={
+    titre:value("titre"),employeur:value("employeur"),ville:value("ville"),
+    departement:value("departement"),region:value("region"),type_contrat:value("type_contrat"),
+    statut:value("statut"),secteur:value("secteur"),categorie:value("categorie"),
+    specialite:value("specialite"),teletravail:value("teletravail"),salaire:value("salaire"),
+    date_limite:value("date_limite"),url_source:value("url_source"),
+    email_contact:value("email_contact"),commentaire:value("commentaire"),
+    statut_validation:"en_attente"
+  };
+
+  try{
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/propositions`,{
+      method:"POST",
+      headers:{"apikey":SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      body:JSON.stringify(payload)
+    });
+    if(!response.ok){const message=await response.text();throw new Error(message||`Erreur ${response.status}`)}
+    submitForm.reset();
+    submitStatus.textContent="Offre envoyée. Elle sera vérifiée avant publication.";
+    submitStatus.className="status success";
+  }catch(error){
+    console.error(error);
+    submitStatus.textContent="L’envoi a échoué. Vérifiez les informations ou réessayez plus tard.";
+    submitStatus.className="status error";
+  }finally{
+    submitOfferButton.disabled=false;
+    submitOfferButton.textContent="Envoyer l’offre";
+  }
+}
+submitForm.addEventListener("submit",sendProposal);
+</script>
+</body>
+</html>

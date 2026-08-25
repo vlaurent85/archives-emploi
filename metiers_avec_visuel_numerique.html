@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon-archiposte.png">
+  <title>Métiers — Archiposte</title>
+  <meta name="description" content="Explorez les métiers des archives, du records management, de l’archivage numérique et de la gestion de l’information.">
+  <style>
+    :root{
+      --paper:#f5f1e8;
+      --paper-2:#fbf8f2;
+      --ink:#102a21;
+      --muted:#66736d;
+      --green:#0d5a45;
+      --green-dark:#073e31;
+      --green-soft:#edf2e7;
+      --warm:#9a5d30;
+      --line:#dedbd3;
+      --white:#fffdfa;
+      --shadow:0 12px 30px rgba(17,42,32,.07);
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:var(--sans);
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .container{width:min(1360px,calc(100% - 40px));margin-inline:auto}
+
+    /* Header */
+    .topbar{background:#062f25;color:#f8faf8;font-size:.78rem}
+    .topbar-inner{
+      height:35px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      white-space:nowrap;
+    }
+    .topbar strong{font-weight:850}
+    .topbar-right{opacity:.88}
+
+    header{
+      background:rgba(248,245,237,.98);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:96px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+    .brand{display:flex;align-items:center;gap:14px;min-width:max-content}
+    .brand img{width:58px;height:58px;object-fit:contain}
+    .brand-name{
+      font-weight:800;
+      font-size:2.55rem;
+      line-height:1;
+      letter-spacing:-.048em;
+      color:#111f1a;
+    }
+    .navlinks{display:flex;align-items:center;gap:42px;font-size:.91rem;font-weight:800}
+    .navlinks a:not(.publish):hover{color:var(--green)}
+    .navlinks .active{color:var(--green)}
+    .publish{
+      border:1px solid var(--green);
+      border-radius:8px;
+      color:var(--green);
+      padding:12px 18px;
+      transition:.15s ease;
+    }
+    .publish:hover{background:var(--green);color:#fff}
+
+    /* Hero */
+    .hero{
+      padding:44px 0 34px;
+      background:
+        radial-gradient(circle at 82% 28%,rgba(13,90,69,.07),transparent 28%),
+        linear-gradient(180deg,var(--paper-2),var(--paper));
+      border-bottom:1px solid var(--line);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);
+      gap:64px;
+      align-items:center;
+    }
+    .eyebrow{
+      margin:0 0 12px;
+      color:var(--warm);
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:0;
+      font-family:var(--serif);
+      font-weight:500;
+      font-size:clamp(3.2rem,4.8vw,5.2rem);
+      line-height:.96;
+      letter-spacing:-.045em;
+      max-width:850px;
+    }
+    .intro{
+      margin:18px 0 0;
+      max-width:770px;
+      color:#475950;
+      font-size:1rem;
+      line-height:1.72;
+    }
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:26px;
+      max-width:760px;
+    }
+    .hero-point{display:flex;gap:10px;align-items:flex-start}
+    .hero-point-icon{
+      width:36px;height:36px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--green-soft);
+      color:var(--green);
+      flex:0 0 auto;
+    }
+    .hero-point-icon svg{width:19px;height:19px;stroke:currentColor}
+    .hero-point strong{display:block;font-size:.79rem}
+    .hero-point span{display:block;margin-top:2px;color:var(--muted);font-size:.69rem;line-height:1.4}
+
+    .hero-visual{
+      min-height:300px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#f8f4eb;
+    }
+    .hero-visual img{
+      display:block;
+      width:100%;
+      height:100%;
+      min-height:300px;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    /* Outils */
+    .tools{
+      padding:24px 0 0;
+    }
+    .tools-row{
+      display:flex;
+      gap:14px;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .tabs{display:flex;gap:7px;flex-wrap:wrap}
+    .tab{
+      border:1px solid var(--line);
+      background:#fff;
+      color:#415148;
+      padding:8px 11px;
+      border-radius:999px;
+      font-size:.77rem;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .tab.active{background:var(--green);border-color:var(--green);color:#fff}
+    .search-wrap{
+      width:min(360px,100%);
+      height:42px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:0 12px;
+      border:1px solid #d8d6d0;
+      background:#fff;
+      border-radius:8px;
+    }
+    .search-wrap svg{width:16px;height:16px;stroke:#526159;flex:0 0 auto}
+    .search-wrap input{width:100%;min-width:0;border:0;outline:0;background:transparent;font-size:.84rem}
+
+    /* Cards */
+    .section{padding:20px 0 54px}
+    .metier-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .metier-card{
+      display:flex;
+      flex-direction:column;
+      min-height:225px;
+      padding:21px;
+      border:1px solid var(--line);
+      border-radius:11px;
+      background:rgba(255,255,255,.68);
+      transition:.15s ease;
+    }
+    .metier-card:hover{
+      background:#fff;
+      box-shadow:var(--shadow);
+      transform:translateY(-1px);
+    }
+    .card-top{display:grid;grid-template-columns:44px minmax(0,1fr);gap:13px;align-items:start}
+    .card-icon{
+      width:44px;height:44px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--green-soft);
+      color:var(--green);
+    }
+    .card-icon svg{width:23px;height:23px;stroke:currentColor}
+    .metier-card h2{
+      margin:0;
+      font-family:var(--serif);
+      font-size:1.35rem;
+      line-height:1.15;
+      font-weight:600;
+      letter-spacing:-.02em;
+    }
+    .metier-card p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:.8rem;
+      line-height:1.6;
+    }
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+    .tag{
+      display:inline-flex;
+      padding:4px 7px;
+      border-radius:5px;
+      background:#edf2e7;
+      color:#0b5b44;
+      font-size:.65rem;
+      font-weight:850;
+    }
+    .card-actions{
+      margin-top:auto;
+      padding-top:17px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border-top:1px solid rgba(222,219,211,.7);
+    }
+    .offers-link{
+      color:var(--green);
+      font-size:.76rem;
+      font-weight:850;
+    }
+    .soon{
+      padding:4px 7px;
+      border-radius:999px;
+      background:#f2e9df;
+      color:#755039;
+      font-size:.61rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      white-space:nowrap;
+    }
+    .hidden{display:none!important}
+
+    /* Ressources */
+    .resources{
+      padding:0 0 54px;
+    }
+    .resources-box{
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:#f9f6ef;
+      padding:22px;
+      display:grid;
+      grid-template-columns:1.2fr repeat(3,1fr);
+      gap:12px;
+    }
+    .resources-intro h2{
+      margin:0;
+      font-family:var(--serif);
+      font-weight:500;
+      font-size:1.45rem;
+    }
+    .resources-intro p{margin:7px 0 0;color:var(--muted);font-size:.78rem;line-height:1.6;max-width:300px}
+    .resource-card{
+      border:1px solid var(--line);
+      background:#fffdfa;
+      border-radius:9px;
+      padding:15px;
+    }
+    .resource-card strong{display:block;font-size:.8rem}
+    .resource-card p{margin:5px 0 0;color:var(--muted);font-size:.69rem;line-height:1.5}
+    .resource-card .soon{display:inline-flex;margin-top:10px}
+
+    .cta{
+      margin-bottom:54px;
+      border-radius:13px;
+      padding:24px 28px;
+      background:var(--green-dark);
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+    }
+    .cta h2{margin:0;font-family:var(--serif);font-weight:500;font-size:1.65rem}
+    .cta p{margin:5px 0 0;color:#dce6e1;font-size:.8rem}
+    .cta a{
+      flex:0 0 auto;
+      border:1px solid #fff;
+      border-radius:8px;
+      padding:10px 15px;
+      font-weight:850;
+      font-size:.8rem;
+    }
+    .cta a:hover{background:rgba(255,255,255,.1)}
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 0 38px;
+      color:var(--muted);
+      font-size:.78rem;
+    }
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    @media(max-width:1000px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:250px}
+      .metier-grid{grid-template-columns:1fr 1fr}
+      .resources-box{grid-template-columns:1fr 1fr}
+      .resources-intro{grid-column:1/-1}
+    }
+    @media(max-width:760px){
+      .topbar-right{display:none}
+      .container{width:min(100% - 26px,1360px)}
+      .nav{height:82px}
+      .brand img{width:50px;height:50px}
+      .brand-name{font-size:2.15rem}
+      .navlinks{gap:18px}
+      .navlinks a:not(.publish){display:none}
+      .hero{padding-top:30px}
+      h1{font-size:3.15rem}
+      .hero-points{grid-template-columns:1fr}
+      .metier-grid{grid-template-columns:1fr}
+      .resources-box{grid-template-columns:1fr}
+      .cta{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span>
+      <span class="topbar-right">Les annonces renvoient vers leur source originale</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Archiposte — Accueil">
+        <img src="favicon-archiposte.png" alt="">
+        <span class="brand-name">Archiposte</span>
+      </a>
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="offres.html">Offres</a>
+        <a class="active" href="metiers.html">Métiers</a>
+        <a href="projet.html">Le projet</a>
+        <a class="publish" href="publier.html">Publier une offre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Archives · Records management · Archivage numérique</div>
+          <h1>Explorer les métiers des archives et de l’information</h1>
+          <p class="intro">
+            Des métiers de collecte et de conservation aux fonctions de gouvernance de l’information,
+            de records management et d’archivage numérique : découvrez les principales fonctions du secteur.
+          </p>
+
+          <div class="hero-points">
+            <div class="hero-point">
+              <div class="hero-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+              </div>
+              <div><strong>Missions</strong><span>Comprendre le rôle de chaque fonction.</span></div>
+            </div>
+            <div class="hero-point">
+              <div class="hero-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m3 10 9-5 9 5-9 5z"/><path d="M7 12v5c3 2 7 2 10 0v-5"/></svg>
+              </div>
+              <div><strong>Compétences</strong><span>Identifier les savoir-faire recherchés.</span></div>
+            </div>
+            <div class="hero-point">
+              <div class="hero-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg>
+              </div>
+              <div><strong>Débouchés</strong><span>Relier les métiers aux offres disponibles.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="metiers-numerique.png" alt="Boîtes et dossiers d’archives aux côtés d’un ordinateur affichant une interface de gestion documentaire numérique">
+        </div>
+      </div>
+    </section>
+
+    <section class="tools">
+      <div class="container tools-row">
+        <div class="tabs" id="tabs">
+          <button class="tab active" type="button" data-category="all">Tous</button>
+          <button class="tab" type="button" data-category="archives">Archives</button>
+          <button class="tab" type="button" data-category="records">Records management</button>
+          <button class="tab" type="button" data-category="numerique">Archivage numérique</button>
+          <button class="tab" type="button" data-category="information">Documentation / information</button>
+        </div>
+
+        <label class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="metierSearch" type="search" placeholder="Rechercher un métier ou une compétence…">
+        </label>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="metier-grid" id="metierGrid">
+
+          <article class="metier-card" data-category="archives" data-search="archiviste collecte classement conservation communication fonds patrimoine">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 10h18M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18M12 3l9 5H3z"/></svg>
+              </div>
+              <div>
+                <h2>Archiviste</h2>
+                <p>Collecte, classe, conserve, décrit et communique les archives afin d’en garantir l’accès dans le temps.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Collecte</span><span class="tag">Classement</span><span class="tag">Communication</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=Archiviste">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="records" data-search="records manager gouvernance information cycle vie documents normes conformité">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M8 3h8v3H8zM8 10h8M8 14h5"/></svg>
+              </div>
+              <div>
+                <h2>Records manager</h2>
+                <p>Organise la gouvernance de l’information, les règles de conservation et le cycle de vie des documents.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Gouvernance</span><span class="tag">Normes</span><span class="tag">Conformité</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=Records%20manager">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="archives" data-search="chargé collecte versement évaluation archives producteurs">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 7h6l2 2h10v10H3z"/><path d="m9 14 2 2 4-4"/></svg>
+              </div>
+              <div>
+                <h2>Chargé de collecte</h2>
+                <p>Accompagne les producteurs, évalue les documents et organise les versements ou transferts d’archives.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Collecte</span><span class="tag">Évaluation</span><span class="tag">Versement</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=collecte">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="numerique" data-search="archiviste numérique sae archivage électronique préservation numérique seda vitam asalae">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <div>
+                <h2>Archiviste numérique</h2>
+                <p>Conçoit et met en œuvre les processus d’archivage électronique et de préservation des données numériques.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">SAE</span><span class="tag">Préservation</span><span class="tag">Numérique</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=num%C3%A9rique">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="archives" data-search="responsable archives chef service management stratégie pilotage équipe">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-6 6-6s6 2 6 6M15 14c3 0 5 2 5 5"/></svg>
+              </div>
+              <div>
+                <h2>Responsable archives</h2>
+                <p>Définit la stratégie du service, pilote l’activité, encadre une équipe et représente la fonction archives.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Management</span><span class="tag">Stratégie</span><span class="tag">Pilotage</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=Responsable">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="archives" data-search="assistant archiviste classement inventaire communication récolement">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M8 13h8M8 17h5"/></svg>
+              </div>
+              <div>
+                <h2>Assistant archiviste</h2>
+                <p>Participe au classement, à l’inventaire, au récolement et à la communication des fonds et documents.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Classement</span><span class="tag">Inventaire</span><span class="tag">Récolement</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=Assistant%20Archiviste">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="archives" data-search="technicien archives traitement conditionnement récolement numérisation classement">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M4 9h16M8 13h8M8 16h5"/></svg>
+              </div>
+              <div>
+                <h2>Technicien archives</h2>
+                <p>Assure des opérations de traitement matériel et intellectuel, de conditionnement, classement et numérisation.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Traitement</span><span class="tag">Conditionnement</span><span class="tag">Numérisation</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=Technicien">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="information" data-search="gestionnaire documentaire ged documentation information documents plan classement métadonnées">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h7l2 2h7v12H4z"/><path d="M8 11h8M8 15h6"/></svg>
+              </div>
+              <div>
+                <h2>Gestionnaire documentaire</h2>
+                <p>Structure, classe et administre les documents et informations nécessaires à l’activité d’une organisation.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">GED</span><span class="tag">Information</span><span class="tag">Métadonnées</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=documentaire">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+          <article class="metier-card" data-category="numerique records information" data-search="chef projet archivage sae dématérialisation gouvernance migration transformation numérique">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V5h16v14z"/><path d="M8 9h8M8 13h5M8 17h3"/></svg>
+              </div>
+              <div>
+                <h2>Chef de projet archivage</h2>
+                <p>Pilote des projets de SAE, dématérialisation, migration, gouvernance ou transformation documentaire.</p>
+              </div>
+            </div>
+            <div class="tags"><span class="tag">Projet</span><span class="tag">SAE</span><span class="tag">Transformation</span></div>
+            <div class="card-actions"><a class="offers-link" href="offres.html?q=projet">Voir les offres →</a><span class="soon">Fiche bientôt</span></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="resources">
+      <div class="container resources-box">
+        <div class="resources-intro">
+          <h2>Parcours & ressources</h2>
+          <p>Des contenus complémentaires pourront progressivement accompagner les fiches métiers.</p>
+        </div>
+        <article class="resource-card"><strong>Formations</strong><p>Diplômes, certifications et formations continues.</p><span class="soon">Bientôt</span></article>
+        <article class="resource-card"><strong>Compétences clés</strong><p>Les savoir-faire recherchés et leur évolution.</p><span class="soon">Bientôt</span></article>
+        <article class="resource-card"><strong>Salaires & débouchés</strong><p>Repères sur les rémunérations et opportunités.</p><span class="soon">Bientôt</span></article>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="cta">
+        <div>
+          <h2>Vous recrutez dans ces métiers ?</h2>
+          <p>Proposez votre offre à un public directement intéressé par les archives et l’information.</p>
+        </div>
+        <a href="publier.html">Publier une offre</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <span>Archiposte · version test</span>
+      <div class="footer-links">
+        <a href="projet.html#contact">À propos / Contact</a>
+        <a href="mailto:archiposte@proton.me">Contact</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tabs = [...document.querySelectorAll(".tab")];
+    const cards = [...document.querySelectorAll(".metier-card")];
+    const search = document.getElementById("metierSearch");
+    let currentCategory = "all";
+
+    function normalize(text){
+      return String(text || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .toLowerCase();
+    }
+
+    function render(){
+      const q = normalize(search.value.trim());
+
+      cards.forEach(card=>{
+        const categories = card.dataset.category.split(/\s+/);
+        const matchesCategory = currentCategory === "all" || categories.includes(currentCategory);
+        const matchesSearch = !q || normalize(card.dataset.search + " " + card.innerText).includes(q);
+        card.classList.toggle("hidden", !(matchesCategory && matchesSearch));
+      });
+    }
+
+    tabs.forEach(tab=>{
+      tab.addEventListener("click",()=>{
+        tabs.forEach(item=>item.classList.remove("active"));
+        tab.classList.add("active");
+        currentCategory = tab.dataset.category;
+        render();
+      });
+    });
+
+    search.addEventListener("input",render);
+  </script>
+</body>
+</html>

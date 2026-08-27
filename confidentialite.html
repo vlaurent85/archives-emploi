@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon-archiposte.png">
+  <title>Confidentialité — Archiposte</title>
+  <style>
+:root{
+  --paper:#f5f1e8;--paper2:#fbf8f2;--ink:#102a21;--muted:#66736d;
+  --green:#0d5a45;--green-dark:#073e31;--green-soft:#edf2e7;
+  --warm:#9a5d30;--line:#dedbd3;--white:#fffdfa;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.topbar{background:#062f25;color:#fff;font-size:.78rem}
+.topbar .container{height:35px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.topbar strong{font-weight:850}
+.topbar span:last-child{opacity:.88}
+header{border-bottom:1px solid var(--line);background:#f8f5ed}
+.nav{height:96px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand img{width:58px;height:58px;object-fit:contain}
+.brand-name{font-size:2.55rem;font-weight:800;line-height:1;letter-spacing:-.048em;color:#111f1a}
+.navlinks{display:flex;gap:38px;align-items:center;font-weight:800;font-size:.9rem}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--green)}
+.publish{border:1px solid var(--green);border-radius:8px;padding:12px 18px;color:var(--green)}
+.hero{padding:48px 0 34px;background:linear-gradient(180deg,var(--paper2),var(--paper));border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--warm);font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+h1{font:500 clamp(3rem,5vw,4.8rem)/.98 var(--serif);letter-spacing:-.045em;margin:0}
+.intro{max-width:790px;color:#475950;margin:17px 0 0;font-size:1rem}
+.content{padding:36px 0 58px}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:20px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.68);padding:17px}
+.toc strong{display:block;margin-bottom:10px;font-size:.8rem}
+.toc a{display:block;padding:7px 0;border-bottom:1px solid rgba(222,219,211,.7);color:var(--muted);font-size:.75rem;text-decoration:none}
+.toc a:last-child{border-bottom:0}
+.toc a:hover{color:var(--green)}
+.legal{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:30px}
+.legal section+section{border-top:1px solid var(--line);margin-top:28px;padding-top:28px}
+.legal h2{font:600 1.55rem var(--serif);margin:0 0 10px;letter-spacing:-.02em}
+.legal h3{margin:18px 0 7px;font-size:.9rem}
+.legal p,.legal li{font-size:.82rem;color:#526159}
+.legal p{margin:8px 0}
+.legal ul{margin:9px 0;padding-left:20px}
+.legal strong{color:var(--ink)}
+.legal a{text-underline-offset:2px}
+.legal table{width:100%;border-collapse:collapse;margin-top:13px;font-size:.76rem}
+.legal th,.legal td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+.legal th{background:#f6f3ec;color:var(--ink)}
+.pending{
+  margin-bottom:22px;padding:15px 17px;border:1px solid #e4d4be;border-radius:9px;
+  background:#faf1e6;color:#755039;font-size:.76rem;line-height:1.6
+}
+.goodnote{
+  padding:14px 16px;border-radius:9px;background:#eef3ec;border:1px solid #d8e1da;
+  color:#40564b;font-size:.77rem;line-height:1.6
+}
+footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:.78rem}
+.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{text-decoration:none}
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr}.toc{position:static}
+  .navlinks{gap:18px}.navlinks a:not(.publish){display:none}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 26px,1180px)}
+  .brand img{width:50px;height:50px}.brand-name{font-size:2.15rem}
+  .topbar span:last-child{display:none}.legal{padding:20px}
+  .legal table{display:block;overflow-x:auto}
+}
+
+/* Harmonisation V1 */
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+h1{
+  font-size:clamp(3rem,3.62vw,3.55rem) !important;
+  line-height:.98 !important;
+}
+@media(max-width:780px){
+  html,body{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+  }
+  .topbar,header,main,footer,.trustbar{
+    width:100vw !important;
+    max-width:100vw !important;
+    min-width:100vw !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  .container{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+  img{
+    max-width:100%;
+  }
+  h1{
+    font-size:2.75rem !important;
+    max-width:none !important;
+  }
+  .topbar-inner{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .topbar-inner > span:first-child,
+  .topbar .container > span:first-child{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+  }
+}
+@media(max-width:420px){
+  h1{font-size:2.55rem !important;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span>
+    <span>Les annonces renvoient vers leur source originale</span>
+  </div>
+</div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Archiposte — Accueil">
+      <img src="favicon-archiposte.png" alt="">
+      <span class="brand-name">Archiposte</span>
+    </a>
+    <nav class="navlinks" aria-label="Navigation principale">
+      <a href="offres.html">Offres</a>
+      <a href="metiers.html">Métiers</a>
+      <a href="projet.html">Le projet</a>
+      <a class="publish" href="publier.html">Publier une offre</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="container">
+    
+    <h1>Confidentialité</h1>
+    <p class="intro">Cette politique explique de façon transparente quelles données personnelles peuvent être traitées par Archiposte, pour quelles raisons, pendant combien de temps et comment exercer vos droits.</p>
+  </div>
+</section>
+
+<main class="content">
+  <div class="container layout">
+    <aside class="toc">
+      <strong>Sur cette page</strong>
+      <a href="#responsable">Responsable</a>
+      <a href="#donnees">Données traitées</a>
+      <a href="#finalites">Finalités et bases légales</a>
+      <a href="#destinataires">Destinataires</a>
+      <a href="#transferts">Hébergement et transferts</a>
+      <a href="#conservation">Conservation</a>
+      <a href="#droits">Vos droits</a>
+      <a href="#cookies">Cookies et traceurs</a>
+      <a href="#securite">Sécurité</a>
+    </aside>
+
+    <article class="legal">
+      <section id="responsable">
+        <h2>1. Responsable du traitement</h2>
+        <p>Le responsable des traitements de données personnelles réalisés directement pour le fonctionnement d’Archiposte est <strong>Valentin Laurent</strong>, éditeur du site.</p>
+        <p>Contact : <a href="mailto:archiposte@proton.me"><strong>archiposte@proton.me</strong></a> ou le formulaire <a href="projet.html#contact">« Nous écrire »</a>.</p>
+      </section>
+
+      <section id="donnees">
+        <h2>2. Quelles données peuvent être traitées ?</h2>
+
+        <h3>Formulaire « Nous écrire »</h3>
+        <p>Le formulaire peut recueillir : nom ou prénom <strong>facultatif</strong>, adresse e-mail <strong>facultative</strong>, objet du message et contenu du message. L’adresse e-mail n’est nécessaire que si vous souhaitez recevoir une réponse.</p>
+
+        <h3>Formulaire « Publier une offre »</h3>
+        <p>Le formulaire recueille les informations nécessaires à l’examen de la proposition d’offre, notamment l’intitulé, l’employeur, le lien vers l’annonce originale et l’adresse e-mail du proposant. Des informations complémentaires peuvent être fournies de manière facultative.</p>
+
+        <h3>Informations figurant dans les offres</h3>
+        <p>Archiposte reprend des informations professionnelles utiles provenant d’annonces d’emploi publiques ou de propositions reçues. Le site n’a pas vocation à republier des coordonnées personnelles de recruteurs ou de candidats qui ne seraient pas nécessaires à la présentation de l’offre. Les candidatures sont renvoyées vers la source originale.</p>
+
+        <h3>Données techniques</h3>
+        <p>Des données techniques nécessaires à la fourniture et à la sécurisation du service peuvent être traitées par les prestataires d’infrastructure, notamment l’adresse IP, la date et l’heure d’une requête, des informations relatives au navigateur, ainsi que des journaux techniques de sécurité.</p>
+
+        <div class="goodnote">Les zones de texte libre ne sont pas destinées à recevoir des données sensibles ou des informations personnelles sans rapport avec la demande.</div>
+      </section>
+
+      <section id="finalites">
+        <h2>3. Finalités et bases légales</h2>
+        <table>
+          <thead>
+            <tr><th>Traitement</th><th>Finalité</th><th>Base légale</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Messages de contact</td>
+              <td>Répondre aux corrections, suggestions, signalements techniques et autres demandes adressées à Archiposte.</td>
+              <td>Intérêt légitime d’Archiposte à répondre aux utilisateurs et à améliorer le service.</td>
+            </tr>
+            <tr>
+              <td>Propositions d’offres</td>
+              <td>Vérifier l’annonce, échanger avec le proposant si nécessaire et décider de sa publication.</td>
+              <td>Intérêt légitime d’Archiposte à administrer, modérer et sécuriser son service de publication.</td>
+            </tr>
+            <tr>
+              <td>Fonctionnement et sécurité</td>
+              <td>Assurer la disponibilité, la protection et le bon fonctionnement technique du site.</td>
+              <td>Intérêt légitime d’Archiposte à sécuriser et administrer le service.</td>
+            </tr>
+            <tr>
+              <td>Exercice des droits</td>
+              <td>Répondre aux demandes relatives aux droits « Informatique et Libertés ».</td>
+              <td>Respect des obligations légales applicables au responsable du traitement.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Archiposte n’utilise pas les données recueillies pour de la prospection commerciale et ne vend pas les données personnelles.</p>
+      </section>
+
+      <section id="destinataires">
+        <h2>4. Qui peut accéder aux données ?</h2>
+        <p>Dans la limite de ce qui est nécessaire aux finalités ci-dessus :</p>
+        <ul>
+          <li><strong>Valentin Laurent</strong>, éditeur d’Archiposte, est destinataire des messages de contact et des propositions d’offres ;</li>
+          <li><strong>Supabase</strong> intervient comme prestataire technique pour le stockage et l’accès à la base de données ;</li>
+          <li><strong>Cloudflare</strong> intervient pour l’hébergement, la diffusion et la sécurité technique du site et peut, à ce titre, traiter certaines données techniques.</li>
+        </ul>
+        <p>Les données ne sont pas communiquées à des tiers à des fins publicitaires.</p>
+      </section>
+
+      <section id="transferts">
+        <h2>5. Hébergement, localisation et transferts internationaux</h2>
+
+        <h3>Supabase</h3>
+        <p>Le service de base de données est fourni par <strong>SUPABASE PTE. LTD.</strong>, 65 Chulia Street #38-02/03, OCBC Centre, Singapore 049513. Le projet Archiposte est déployé dans la région spécifique <strong>West EU (Ireland) — eu-west-1</strong> : les données principales du projet sont donc stockées dans cette région.</p>
+        <p>Supabase prévoit dans son accord de traitement des données des mécanismes contractuels, notamment les clauses contractuelles types de la Commission européenne, lorsque des transferts de données couverts vers des pays tiers nécessitent des garanties appropriées.</p>
+
+        <h3>Cloudflare</h3>
+        <p>L’hébergement et la diffusion du site reposent sur <strong>Cloudflare, Inc.</strong>, 101 Townsend St., San Francisco, CA 94107, États-Unis. Certaines données techniques peuvent être traitées hors de l’Espace économique européen dans le cadre de la fourniture du service.</p>
+        <p>Cloudflare indique s’appuyer notamment sur le cadre de protection des données UE–États-Unis lorsqu’il est applicable et sur les clauses contractuelles types de la Commission européenne, accompagnées le cas échéant de mesures supplémentaires.</p>
+      </section>
+
+      <section id="conservation">
+        <h2>6. Combien de temps les données sont-elles conservées ?</h2>
+        <ul>
+          <li><strong>Messages de contact :</strong> au maximum <strong>6 mois à compter de leur réception</strong>.</li>
+          <li><strong>Propositions d’offres :</strong> les données personnelles du proposant et les éventuels commentaires sont conservés au maximum <strong>6 mois à compter de leur réception</strong>.</li>
+          <li><strong>Offres publiées :</strong> l’offre elle-même peut être conservée plus longtemps lorsqu’elle ne contient plus de donnée personnelle inutile, notamment à des fins d’historique du service.</li>
+          <li><strong>Données techniques :</strong> leur durée dépend du service technique concerné et des politiques applicables des prestataires. Archiposte n’en conserve pas volontairement une copie autonome au-delà de ce qui est nécessaire au fonctionnement ou à la sécurité.</li>
+        </ul>
+        <p>Une conservation plus longue peut exceptionnellement intervenir lorsqu’elle est nécessaire au respect d’une obligation légale ou à la constatation, l’exercice ou la défense de droits en justice.</p>
+      </section>
+
+      <section id="droits">
+        <h2>7. Vos droits</h2>
+        <p>Selon les conditions prévues par le RGPD et la loi Informatique et Libertés, vous pouvez demander l’accès aux données vous concernant, leur rectification ou leur effacement, demander la limitation d’un traitement et vous opposer aux traitements fondés sur l’intérêt légitime.</p>
+        <p>Pour exercer ces droits ou poser une question relative à vos données : <a href="mailto:archiposte@proton.me"><strong>archiposte@proton.me</strong></a> ou formulaire <a href="projet.html#contact">« Nous écrire »</a>.</p>
+        <p>Une réponse est apportée dans les délais prévus par la réglementation. Une preuve d’identité peut être demandée uniquement lorsqu’elle est nécessaire pour éviter qu’une personne non autorisée accède à vos données.</p>
+        <p>Si vous estimez, après avoir contacté Archiposte, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la <a href="https://www.cnil.fr/" target="_blank" rel="noopener">Commission nationale de l’informatique et des libertés (CNIL)</a>.</p>
+      </section>
+
+      <section id="cookies">
+        <h2>8. Cookies et traceurs</h2>
+        <p>Archiposte n’installe actuellement aucun outil de mesure d’audience publicitaire, de profilage, de reciblage ou de suivi marketing.</p>
+        <p>Cloudflare peut, selon les fonctions de sécurité effectivement activées, utiliser des mécanismes ou cookies strictement nécessaires à la sécurité, à la prévention des abus ou à la fourniture du service. Si Archiposte ajoute ultérieurement un traceur non strictement nécessaire, cette politique et, le cas échéant, un mécanisme de recueil du consentement seront mis à jour avant son utilisation.</p>
+      </section>
+
+      <section id="securite">
+        <h2>9. Sécurité et décisions automatisées</h2>
+        <p>Archiposte met en œuvre des mesures techniques et organisationnelles proportionnées à la nature du service afin de limiter les accès non autorisés, les modifications indues et la divulgation des données. L’accès à la base de données est limité aux besoins d’administration du site et aux prestataires techniques nécessaires.</p>
+        <p>Aucune décision produisant un effet juridique ou affectant significativement une personne n’est prise de manière exclusivement automatisée à partir des données recueillies par ces formulaires.</p>
+      </section>
+
+      <section>
+        <h2>10. Mise à jour</h2>
+        <p>Cette politique peut être mise à jour en cas d’évolution des fonctionnalités, des prestataires ou des traitements. <strong>Dernière mise à jour : 25 août 2026.</strong></p>
+      </section>
+    </article>
+  </div>
+</main>
+
+
+<footer>
+  <div class="container footer-grid">
+    <span>Archiposte · version test</span>
+    <div class="footer-links">
+      <a href="projet.html#contact">À propos / Contact</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

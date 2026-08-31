@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-archiposte.png">
+<title>Publier une offre — Archiposte</title>
+<meta name="description" content="Proposer une offre d’emploi en archives, records management, archivage numérique ou gestion de l’information sur Archiposte.">
+<style>
+:root{--paper:#f5f1e8;--paper-2:#fbf8f2;--ink:#102a21;--muted:#66736d;--green:#0d5a45;--green-dark:#073e31;--green-soft:#edf2e7;--warm:#9a5d30;--line:#dedbd3;--white:#fffdfa;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.5}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.container{width:min(1360px,calc(100% - 40px));margin:auto}
+.topbar{background:#062f25;color:#f8faf8;font-size:.78rem}.topbar-inner{height:35px;display:flex;align-items:center;justify-content:space-between;gap:24px}.topbar strong{font-weight:850}.topbar-right{opacity:.88}
+header{background:rgba(248,245,237,.98);border-bottom:1px solid var(--line)}.nav{height:96px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:14px}.brand img{width:58px;height:58px;object-fit:contain}.brand-name{font-weight:800;font-size:2.55rem;line-height:1;letter-spacing:-.048em;color:#111f1a}.navlinks{display:flex;align-items:center;gap:42px;font-size:.91rem;font-weight:800}.publish{border:1px solid var(--green);border-radius:8px;color:#fff;background:var(--green);padding:12px 18px}
+.hero{padding:46px 0 34px;background:radial-gradient(circle at 82% 25%,rgba(13,90,69,.07),transparent 28%),linear-gradient(180deg,var(--paper-2),var(--paper));border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);gap:60px;align-items:center}.eyebrow{margin:0 0 12px;color:var(--warm);font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}h1{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,4.6vw,5rem);line-height:.97;letter-spacing:-.045em}.intro{margin:18px 0 0;max-width:760px;color:#475950;font-size:1rem;line-height:1.72}
+.promise{border:1px solid var(--line);border-radius:15px;background:#fffdfa;padding:24px}.promise h2{margin:0 0 14px;font-family:var(--serif);font-size:1.55rem;font-weight:500}.promise-list{display:grid;gap:13px}.promise-item{display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px}.promise-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);color:var(--green)}.promise-icon svg{width:20px;height:20px;stroke:currentColor}.promise-item strong{display:block;font-size:.8rem}.promise-item span{display:block;margin-top:2px;color:var(--muted);font-size:.72rem;line-height:1.45}
+.section{padding:38px 0 56px}.publish-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start}.side{position:sticky;top:18px;display:grid;gap:14px}.side-card{border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.68);padding:18px}.side-card h3{margin:0;font-family:var(--serif);font-size:1.2rem}.side-card p,.side-card ul{color:var(--muted);font-size:.74rem;line-height:1.6}.side-card ul{padding-left:18px}.free-badge{display:inline-flex;margin-top:10px;padding:5px 8px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.form-panel{border:1px solid var(--line);border-radius:13px;background:#fffdfa;padding:26px}.form-panel-head{padding-bottom:19px;margin-bottom:20px;border-bottom:1px solid var(--line)}.form-panel-head h2{margin:0;font-family:var(--serif);font-size:1.85rem;font-weight:500}.form-panel-head p{margin:7px 0 0;color:var(--muted);font-size:.78rem}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.field input,.field select,.field textarea{width:100%;border:1px solid #d8d6d0;background:#fff;color:var(--ink);border-radius:8px;padding:11px 12px;outline:0}.field textarea{min-height:125px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#9ab6ab;box-shadow:0 0 0 3px rgba(13,90,69,.08)}.help{margin:0;color:var(--muted);font-size:.69rem;line-height:1.5}.actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px;padding-top:19px;border-top:1px solid var(--line)}.submit{border:1px solid var(--green);background:var(--green);color:#fff;border-radius:8px;padding:11px 16px;font-weight:850;cursor:pointer}.submit:hover{background:var(--green-dark)}.submit:disabled{opacity:.6}.status{font-size:.77rem;color:var(--muted)}.status.success{color:var(--green)}.status.error{color:#a13d32}.note{margin-top:16px;padding:16px 18px;border-radius:10px;background:#f8f5ed;border:1px solid var(--line);color:#526159;font-size:.74rem;line-height:1.6}
+footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:.78rem}.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:1000px){.hero-grid,.publish-layout{grid-template-columns:1fr}.side{position:static;grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.topbar-right{display:none}.container{width:min(100% - 26px,1360px)}.nav{height:82px}.brand img{width:50px;height:50px}.brand-name{font-size:2.15rem}.navlinks{gap:18px}.navlinks a:not(.publish){display:none}.hero{padding-top:30px}h1{font-size:3.05rem}.form-grid,.side{grid-template-columns:1fr}}
+
+/* Harmonisation V1 */
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+h1{
+  font-size:clamp(3rem,3.62vw,3.55rem) !important;
+  line-height:.98 !important;
+}
+@media(max-width:780px){
+  html,body{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+  }
+  .topbar,header,main,footer,.trustbar{
+    width:100vw !important;
+    max-width:100vw !important;
+    min-width:100vw !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  .container{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+  img{
+    max-width:100%;
+  }
+  h1{
+    font-size:2.75rem !important;
+    max-width:none !important;
+  }
+  .topbar-inner{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .topbar-inner > span:first-child,
+  .topbar .container > span:first-child{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+  }
+}
+@media(max-width:420px){
+  h1{font-size:2.55rem !important;}
+}
+
+
+
+/* Champs structurés */
+fieldset.field{margin:0;padding:0;border:0;min-width:0}
+.option-field{padding:14px 15px !important;border:1px solid var(--line) !important;border-radius:10px;background:#fbfaf6}
+.option-field legend{padding:0 5px;font-weight:800;color:var(--ink);font-size:.82rem}
+.check-grid{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:4px}
+.check-option{display:inline-flex;align-items:center;gap:7px;min-height:34px;font-size:.8rem;color:#3f4c46;cursor:pointer}
+.check-option input{width:17px;height:17px;accent-color:var(--green);margin:0}
+.conditional-block[hidden],.conditional-field[hidden]{display:none !important}
+.mini-help{display:block;margin-top:6px;font-size:.7rem;line-height:1.4;color:var(--muted)}
+.form-section-title{grid-column:1/-1;margin:8px 0 -2px;padding-top:4px;font-family:var(--serif);font-size:1.08rem;color:var(--green-dark);border-top:1px solid var(--line)}
+.form-section-title:first-child{border-top:0;margin-top:0}
+.salary-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:680px){.salary-pair{grid-template-columns:1fr}.check-grid{gap:6px 12px}}
+
+
+.department-field{position:relative}
+.department-combobox{position:relative}
+.department-suggestions{
+  position:absolute;z-index:30;left:0;right:0;top:calc(100% + 5px);
+  max-height:240px;overflow:auto;background:var(--white);border:1px solid var(--line);
+  border-radius:10px;box-shadow:0 12px 28px rgba(16,42,33,.12);padding:5px;
+}
+.department-suggestions[hidden]{display:none}
+.department-suggestion{
+  display:block;width:100%;border:0;border-radius:7px;background:transparent;color:var(--ink);
+  padding:10px 11px;text-align:left;cursor:pointer;font-size:.9rem;
+}
+.department-suggestion:hover,.department-suggestion.active{background:var(--green-soft);color:var(--green-dark)}
+.department-suggestion strong{font-weight:800}
+.department-empty{padding:10px 11px;color:var(--muted);font-size:.82rem}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container topbar-inner"><span><strong>Version test</strong> — Le site d’emploi des professionnels des archives et de l’information</span><span class="topbar-right">Les annonces renvoient vers leur source originale</span></div></div>
+<header><div class="container nav"><a class="brand" href="index.html"><img src="favicon-archiposte.png" alt=""><span class="brand-name">Archiposte</span></a><nav class="navlinks"><a href="offres.html">Offres</a><a href="metiers.html">Métiers</a><a href="projet.html">Le projet</a><a class="publish" href="publier.html">Publier une offre</a></nav></div></header>
+
+<main>
+<section class="hero"><div class="container hero-grid">
+<div><h1>Publier une offre sur Archiposte</h1><p class="intro">Vous recrutez dans les archives, le records management, l’archivage numérique ou la gestion de l’information ? Proposez votre annonce : elle sera vérifiée avant toute publication.</p></div>
+<aside class="promise"><h2>Pourquoi publier ici ?</h2><div class="promise-list">
+<div class="promise-item"><div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="m8 12 2.5 2.5L16 9"/></svg></div><div><strong>Un public spécialisé</strong><span>Une audience directement intéressée par les métiers des archives et de l’information.</span></div></div>
+<div class="promise-item"><div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h6"/></svg></div><div><strong>Une annonce structurée</strong><span>Les informations essentielles sont harmonisées pour faciliter la lecture et la comparaison.</span></div></div>
+<div class="promise-item"><div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3v18M5 8h14M5 16h14"/></svg></div><div><strong>Gratuit</strong><span>Aucun paiement, aucun engagement.</span></div></div>
+</div></aside>
+</div></section>
+
+<section class="section"><div class="container publish-layout">
+<aside class="side">
+<div class="side-card"><h3>Avant l’envoi</h3><p>Vérifiez que l’annonce est toujours active et qu’un lien vers sa source originale est disponible.</p><ul><li>Intitulé clair</li><li>Employeur identifié</li><li>Lien source obligatoire</li><li>Informations vérifiables</li></ul></div>
+<div class="side-card"><h3>Après l’envoi</h3><p>La proposition n’est pas publiée automatiquement. Elle est d’abord vérifiée. Si elle est publiée, une confirmation vous est envoyée par e-mail avec le lien de l’annonce.</p><span class="free-badge">Publication gratuite</span></div>
+</aside>
+
+<section class="form-panel">
+<div class="form-panel-head"><h2>Informations sur l’offre</h2><p>Les champs marqués d’un astérisque sont nécessaires au traitement de votre proposition.</p></div>
+<form id="submitForm"><div class="form-grid">
+<div class="field full"><label for="p_titre">Intitulé du poste *</label><input id="p_titre" name="titre" required maxlength="200" placeholder="Ex. Archiviste chargé de collecte"></div>
+<div class="field"><label for="p_employeur">Employeur *</label><input id="p_employeur" name="employeur" required maxlength="200"></div>
+<div class="field"><label for="p_secteur">Secteur *</label><select id="p_secteur" name="secteur" required><option value="">Choisir…</option><option value="Public">Public</option><option value="Privé">Privé</option></select></div>
+
+<div class="field"><label for="p_ville">Ville</label><input id="p_ville" name="ville" maxlength="120" placeholder="Ex. Bordeaux"></div>
+<div class="field department-field">
+  <label for="p_departement">Département</label>
+  <div class="department-combobox">
+    <input id="p_departement" name="departement_choix" autocomplete="off" maxlength="140"
+           placeholder="Tapez les premières lettres…" role="combobox"
+           aria-autocomplete="list" aria-expanded="false" aria-controls="departementsList">
+    <div id="departementsList" class="department-suggestions" role="listbox" hidden></div>
+  </div>
+  <input id="p_departement_code" name="departement_code" type="hidden">
+  <input id="p_region" name="region" type="hidden">
+  <p class="help" id="locationAutoHelp">Tapez quelques lettres puis choisissez un département. La région sera ajoutée automatiquement.</p>
+</div>
+<div class="field"><label for="p_date_limite">Date limite</label><input id="p_date_limite" name="date_limite" type="date"></div>
+<div class="field"></div>
+
+<div class="form-section-title">Conditions du poste</div>
+<fieldset class="field full option-field" data-single-group="contrat"><legend>Contrat</legend><div class="check-grid">
+<label class="check-option"><input type="checkbox" name="contrat" value="CDD"> CDD</label>
+<label class="check-option"><input type="checkbox" name="contrat" value="CDI"> CDI</label>
+<label class="check-option"><input type="checkbox" name="contrat" value="Alternance"> Alternance</label>
+<label class="check-option"><input type="checkbox" name="contrat" value="Stage"> Stage</label>
+<label class="check-option"><input type="checkbox" name="contrat" value="Intérim"> Intérim</label>
+<label class="check-option"><input type="checkbox" name="contrat" value="non_precise" data-exclusive checked> Non précisé</label>
+</div></fieldset>
+
+<div class="conditional-block full" id="publicFields" hidden>
+  <div class="form-grid">
+    <div class="field"><label for="p_fonction_publique">Fonction publique</label><select id="p_fonction_publique" name="fonction_publique"><option value="non_precise">Non précisé</option><option value="État">État</option><option value="Territoriale">Territoriale</option><option value="Hospitalière">Hospitalière</option></select></div>
+    <div class="field"></div>
+    <fieldset class="field option-field" data-single-group="categorie_unique"><legend>Catégorie</legend><div class="check-grid">
+<label class="check-option"><input type="checkbox" name="categorie_unique" value="A+"> A+</label>
+<label class="check-option"><input type="checkbox" name="categorie_unique" value="A"> A</label>
+<label class="check-option"><input type="checkbox" name="categorie_unique" value="B"> B</label>
+<label class="check-option"><input type="checkbox" name="categorie_unique" value="C"> C</label>
+<label class="check-option"><input type="checkbox" name="categorie_unique" value="non_precise" data-exclusive checked> Non précisé</label>
+</div></fieldset>
+    <fieldset class="field option-field" data-single-group="statut_unique"><legend>Statut</legend><div class="check-grid">
+<label class="check-option"><input type="checkbox" name="statut_unique" value="Titulaire"> Titulaire</label>
+<label class="check-option"><input type="checkbox" name="statut_unique" value="Contractuel"> Contractuel</label>
+<label class="check-option"><input type="checkbox" name="statut_unique" value="non_precise" data-exclusive checked> Non précisé</label>
+</div></fieldset>
+  </div>
+</div>
+
+<fieldset class="field full option-field" data-single-group="temps_travail_unique"><legend>Temps de travail</legend><div class="check-grid">
+<label class="check-option"><input type="checkbox" name="temps_travail_unique" value="Temps plein"> Temps plein</label>
+<label class="check-option"><input type="checkbox" name="temps_travail_unique" value="Temps partiel"> Temps partiel</label>
+<label class="check-option"><input type="checkbox" name="temps_travail_unique" value="non_precise" data-exclusive checked> Non précisé</label>
+</div></fieldset>
+
+<div class="field"><label for="p_teletravail">Télétravail</label><select id="p_teletravail" name="teletravail"><option value="non_precise">Non précisé</option><option value="oui">Oui</option><option value="non">Non</option></select></div>
+<div class="field"><label for="p_encadrement">Encadrement</label><select id="p_encadrement" name="encadrement"><option value="non_precise">Non précisé</option><option value="oui">Oui</option><option value="non">Non</option></select></div>
+
+<div class="form-section-title">Profil recherché</div>
+<fieldset class="field full option-field" data-multi-group="niveaux_etudes"><legend>Niveau d’études</legend><div class="check-grid">
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="Sans exigence de diplôme"> Sans exigence de diplôme</label>
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="Bac"> Bac</label>
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="Bac+2"> Bac+2</label>
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="Bac+3"> Bac+3</label>
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="Bac+4"> Bac+4</label>
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="Bac+5 et +"> Bac+5 et +</label>
+<label class="check-option"><input type="checkbox" name="niveaux_etudes" value="non_precise" data-exclusive> Non précisé</label>
+</div><span class="mini-help">Plusieurs niveaux peuvent être sélectionnés.</span></fieldset>
+
+<div class="field"><label for="p_experience">Expérience</label><select id="p_experience" name="experience"><option value="non_precise">Non précisé</option><option value="Débutant accepté">Débutant accepté</option><option value="Expérience requise">Expérience requise</option></select></div>
+<div class="field"></div>
+
+<div class="form-section-title">Rémunération</div>
+<div class="field full"><label for="p_remuneration_type">Mode de rémunération</label><select id="p_remuneration_type" name="remuneration_type"><option value="non_precise">Non précisé</option><option value="montant">Montant ou fourchette</option><option value="grille">Selon grille indiciaire</option></select></div>
+<div class="field full conditional-field" id="salaryAmountFields" hidden>
+  <div class="salary-pair">
+    <div><label for="p_salaire_min">Minimum brut annuel (€)</label><input id="p_salaire_min" name="salaire_min" type="number" min="0" max="300000" step="500" inputmode="numeric" placeholder="Ex. 32000"></div>
+    <div><label for="p_salaire_max">Maximum brut annuel (€)</label><input id="p_salaire_max" name="salaire_max" type="number" min="0" max="300000" step="500" inputmode="numeric" placeholder="Ex. 38000"></div>
+  </div>
+  <span class="mini-help">Pour un montant unique, renseignez seulement le minimum. Ces valeurs permettront le filtre par salaire.</span>
+</div>
+<div class="field full conditional-field" id="gridReferenceField" hidden><label for="p_grille_reference">Corps, cadre d’emplois ou grille (facultatif)</label><input id="p_grille_reference" name="grille_reference" maxlength="180" placeholder="Ex. Attaché territorial de conservation du patrimoine"></div>
+
+<div class="form-section-title">Source et contact</div>
+<div class="field full"><label for="p_url">Lien vers l’offre originale *</label><input id="p_url" name="url_source" type="url" required placeholder="https://…"></div>
+<div class="field full"><label for="p_email">Votre e-mail *</label><input id="p_email" name="email_contact" type="email" required maxlength="200" placeholder="Utilisé uniquement pour la vérification"><p class="help">Cette adresse n’est jamais publiée. Elle sert à vérifier votre proposition et à vous confirmer sa publication.</p></div>
+<div class="field full"><p class="help"><strong>Données personnelles :</strong> les champs marqués * sont nécessaires pour examiner la proposition. L’adresse électronique n’est jamais publiée. Consultez la page <a href="confidentialite.html" target="_blank" rel="noopener" style="text-decoration:underline">Confidentialité</a> pour les informations relatives au traitement des données. N’ajoutez pas de donnée sensible ou inutile dans le commentaire.</p></div>
+<div class="field full"><label for="p_commentaire">Précisions éventuelles</label><textarea id="p_commentaire" name="commentaire" maxlength="1500" placeholder="Informations utiles pour la vérification de l’annonce…"></textarea></div>
+</div>
+<div class="actions"><button class="submit" id="submitOfferButton" type="submit">Envoyer l’offre</button><span class="status" id="submitStatus"></span></div>
+</form>
+<div class="note">Archiposte centralise et structure les annonces, mais ne reçoit pas les candidatures. Les candidats seront redirigés vers le lien original que vous fournissez.</div>
+</section>
+</div></section>
+</main>
+
+<footer><div class="container footer-grid"><span>Archiposte · version test</span><div class="footer-links">
+        <a href="projet.html#contact">À propos / Contact</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </div></div></footer>
+
+<script>
+const SUPABASE_URL="https://wcznshhziuvqawdhqxpk.supabase.co";
+const SUPABASE_KEY="sb_publishable_G2wPyPyfJhbGL27PKxDrFg_gC7jLnwY";
+const submitForm=document.getElementById("submitForm");
+const submitStatus=document.getElementById("submitStatus");
+const submitOfferButton=document.getElementById("submitOfferButton");
+const sectorField=document.getElementById("p_secteur");
+const publicFields=document.getElementById("publicFields");
+const remunerationType=document.getElementById("p_remuneration_type");
+const salaryAmountFields=document.getElementById("salaryAmountFields");
+const gridReferenceField=document.getElementById("gridReferenceField");
+const departmentInput=document.getElementById("p_departement");
+const departmentCodeInput=document.getElementById("p_departement_code");
+const regionInput=document.getElementById("p_region");
+const departmentList=document.getElementById("departementsList");
+const locationAutoHelp=document.getElementById("locationAutoHelp");
+const DEPARTEMENTS=[{"code":"01","nom":"Ain","region":"Auvergne-Rhône-Alpes"},{"code":"02","nom":"Aisne","region":"Hauts-de-France"},{"code":"03","nom":"Allier","region":"Auvergne-Rhône-Alpes"},{"code":"04","nom":"Alpes-de-Haute-Provence","region":"Provence-Alpes-Côte d’Azur"},{"code":"05","nom":"Hautes-Alpes","region":"Provence-Alpes-Côte d’Azur"},{"code":"06","nom":"Alpes-Maritimes","region":"Provence-Alpes-Côte d’Azur"},{"code":"07","nom":"Ardèche","region":"Auvergne-Rhône-Alpes"},{"code":"08","nom":"Ardennes","region":"Grand Est"},{"code":"09","nom":"Ariège","region":"Occitanie"},{"code":"10","nom":"Aube","region":"Grand Est"},{"code":"11","nom":"Aude","region":"Occitanie"},{"code":"12","nom":"Aveyron","region":"Occitanie"},{"code":"13","nom":"Bouches-du-Rhône","region":"Provence-Alpes-Côte d’Azur"},{"code":"14","nom":"Calvados","region":"Normandie"},{"code":"15","nom":"Cantal","region":"Auvergne-Rhône-Alpes"},{"code":"16","nom":"Charente","region":"Nouvelle-Aquitaine"},{"code":"17","nom":"Charente-Maritime","region":"Nouvelle-Aquitaine"},{"code":"18","nom":"Cher","region":"Centre-Val de Loire"},{"code":"19","nom":"Corrèze","region":"Nouvelle-Aquitaine"},{"code":"2A","nom":"Corse-du-Sud","region":"Corse"},{"code":"2B","nom":"Haute-Corse","region":"Corse"},{"code":"21","nom":"Côte-d’Or","region":"Bourgogne-Franche-Comté"},{"code":"22","nom":"Côtes-d’Armor","region":"Bretagne"},{"code":"23","nom":"Creuse","region":"Nouvelle-Aquitaine"},{"code":"24","nom":"Dordogne","region":"Nouvelle-Aquitaine"},{"code":"25","nom":"Doubs","region":"Bourgogne-Franche-Comté"},{"code":"26","nom":"Drôme","region":"Auvergne-Rhône-Alpes"},{"code":"27","nom":"Eure","region":"Normandie"},{"code":"28","nom":"Eure-et-Loir","region":"Centre-Val de Loire"},{"code":"29","nom":"Finistère","region":"Bretagne"},{"code":"30","nom":"Gard","region":"Occitanie"},{"code":"31","nom":"Haute-Garonne","region":"Occitanie"},{"code":"32","nom":"Gers","region":"Occitanie"},{"code":"33","nom":"Gironde","region":"Nouvelle-Aquitaine"},{"code":"34","nom":"Hérault","region":"Occitanie"},{"code":"35","nom":"Ille-et-Vilaine","region":"Bretagne"},{"code":"36","nom":"Indre","region":"Centre-Val de Loire"},{"code":"37","nom":"Indre-et-Loire","region":"Centre-Val de Loire"},{"code":"38","nom":"Isère","region":"Auvergne-Rhône-Alpes"},{"code":"39","nom":"Jura","region":"Bourgogne-Franche-Comté"},{"code":"40","nom":"Landes","region":"Nouvelle-Aquitaine"},{"code":"41","nom":"Loir-et-Cher","region":"Centre-Val de Loire"},{"code":"42","nom":"Loire","region":"Auvergne-Rhône-Alpes"},{"code":"43","nom":"Haute-Loire","region":"Auvergne-Rhône-Alpes"},{"code":"44","nom":"Loire-Atlantique","region":"Pays de la Loire"},{"code":"45","nom":"Loiret","region":"Centre-Val de Loire"},{"code":"46","nom":"Lot","region":"Occitanie"},{"code":"47","nom":"Lot-et-Garonne","region":"Nouvelle-Aquitaine"},{"code":"48","nom":"Lozère","region":"Occitanie"},{"code":"49","nom":"Maine-et-Loire","region":"Pays de la Loire"},{"code":"50","nom":"Manche","region":"Normandie"},{"code":"51","nom":"Marne","region":"Grand Est"},{"code":"52","nom":"Haute-Marne","region":"Grand Est"},{"code":"53","nom":"Mayenne","region":"Pays de la Loire"},{"code":"54","nom":"Meurthe-et-Moselle","region":"Grand Est"},{"code":"55","nom":"Meuse","region":"Grand Est"},{"code":"56","nom":"Morbihan","region":"Bretagne"},{"code":"57","nom":"Moselle","region":"Grand Est"},{"code":"58","nom":"Nièvre","region":"Bourgogne-Franche-Comté"},{"code":"59","nom":"Nord","region":"Hauts-de-France"},{"code":"60","nom":"Oise","region":"Hauts-de-France"},{"code":"61","nom":"Orne","region":"Normandie"},{"code":"62","nom":"Pas-de-Calais","region":"Hauts-de-France"},{"code":"63","nom":"Puy-de-Dôme","region":"Auvergne-Rhône-Alpes"},{"code":"64","nom":"Pyrénées-Atlantiques","region":"Nouvelle-Aquitaine"},{"code":"65","nom":"Hautes-Pyrénées","region":"Occitanie"},{"code":"66","nom":"Pyrénées-Orientales","region":"Occitanie"},{"code":"67","nom":"Bas-Rhin","region":"Grand Est"},{"code":"68","nom":"Haut-Rhin","region":"Grand Est"},{"code":"69","nom":"Rhône","region":"Auvergne-Rhône-Alpes"},{"code":"70","nom":"Haute-Saône","region":"Bourgogne-Franche-Comté"},{"code":"71","nom":"Saône-et-Loire","region":"Bourgogne-Franche-Comté"},{"code":"72","nom":"Sarthe","region":"Pays de la Loire"},{"code":"73","nom":"Savoie","region":"Auvergne-Rhône-Alpes"},{"code":"74","nom":"Haute-Savoie","region":"Auvergne-Rhône-Alpes"},{"code":"75","nom":"Paris","region":"Île-de-France"},{"code":"76","nom":"Seine-Maritime","region":"Normandie"},{"code":"77","nom":"Seine-et-Marne","region":"Île-de-France"},{"code":"78","nom":"Yvelines","region":"Île-de-France"},{"code":"79","nom":"Deux-Sèvres","region":"Nouvelle-Aquitaine"},{"code":"80","nom":"Somme","region":"Hauts-de-France"},{"code":"81","nom":"Tarn","region":"Occitanie"},{"code":"82","nom":"Tarn-et-Garonne","region":"Occitanie"},{"code":"83","nom":"Var","region":"Provence-Alpes-Côte d’Azur"},{"code":"84","nom":"Vaucluse","region":"Provence-Alpes-Côte d’Azur"},{"code":"85","nom":"Vendée","region":"Pays de la Loire"},{"code":"86","nom":"Vienne","region":"Nouvelle-Aquitaine"},{"code":"87","nom":"Haute-Vienne","region":"Nouvelle-Aquitaine"},{"code":"88","nom":"Vosges","region":"Grand Est"},{"code":"89","nom":"Yonne","region":"Bourgogne-Franche-Comté"},{"code":"90","nom":"Territoire de Belfort","region":"Bourgogne-Franche-Comté"},{"code":"91","nom":"Essonne","region":"Île-de-France"},{"code":"92","nom":"Hauts-de-Seine","region":"Île-de-France"},{"code":"93","nom":"Seine-Saint-Denis","region":"Île-de-France"},{"code":"94","nom":"Val-de-Marne","region":"Île-de-France"},{"code":"95","nom":"Val-d’Oise","region":"Île-de-France"},{"code":"971","nom":"Guadeloupe","region":"Guadeloupe"},{"code":"972","nom":"Martinique","region":"Martinique"},{"code":"973","nom":"Guyane","region":"Guyane"},{"code":"974","nom":"La Réunion","region":"La Réunion"},{"code":"976","nom":"Mayotte","region":"Mayotte"}];
+
+function normalizeLookup(value){
+  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[’']/g,"'").trim().toLowerCase();
+}
+function departmentLabel(item){return `${item.nom} (${item.code})`;}
+let departmentActiveIndex=-1;
+
+function escapeAttribute(value){
+  return String(value||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function matchingDepartments(raw){
+  const q=normalizeLookup(raw);
+  if(!q) return [];
+  return DEPARTEMENTS.filter(item=>{
+    const nom=normalizeLookup(item.nom);
+    const code=normalizeLookup(item.code);
+    const label=normalizeLookup(departmentLabel(item));
+    return nom.startsWith(q) || code.startsWith(q) || label.includes(q);
+  }).slice(0,12);
+}
+
+function hideDepartmentSuggestions(){
+  departmentList.hidden=true;
+  departmentList.innerHTML="";
+  departmentActiveIndex=-1;
+  departmentInput.setAttribute("aria-expanded","false");
+}
+
+function chooseDepartment(item){
+  departmentInput.value=departmentLabel(item);
+  departmentCodeInput.value=item.code;
+  regionInput.value=item.region;
+  departmentInput.setCustomValidity("");
+  locationAutoHelp.textContent=`${item.nom} (${item.code}) · ${item.region}`;
+  hideDepartmentSuggestions();
+}
+
+function renderDepartmentSuggestions(){
+  const matches=matchingDepartments(departmentInput.value);
+  departmentActiveIndex=-1;
+  if(!departmentInput.value.trim()){
+    hideDepartmentSuggestions();
+    return;
+  }
+  if(!matches.length){
+    departmentList.innerHTML='<div class="department-empty">Aucun département trouvé.</div>';
+    departmentList.hidden=false;
+    departmentInput.setAttribute("aria-expanded","true");
+    return;
+  }
+  departmentList.innerHTML=matches.map((item,index)=>`
+    <button type="button" class="department-suggestion" role="option" data-code="${escapeAttribute(item.code)}" data-index="${index}">
+      <strong>${escapeAttribute(item.nom)}</strong> (${escapeAttribute(item.code)})
+    </button>`).join("");
+  departmentList.hidden=false;
+  departmentInput.setAttribute("aria-expanded","true");
+}
+
+function populateDepartments(){
+  hideDepartmentSuggestions();
+}
+function resolveDepartment(raw){
+  const wanted=normalizeLookup(raw);
+  if(!wanted) return null;
+  return DEPARTEMENTS.find(item=>{
+    const label=normalizeLookup(departmentLabel(item));
+    const name=normalizeLookup(item.nom);
+    return wanted===label || wanted===name || wanted===normalizeLookup(item.code);
+  }) || null;
+}
+departmentInput.addEventListener("input",()=>{
+  departmentCodeInput.value="";
+  regionInput.value="";
+  departmentInput.setCustomValidity("");
+  locationAutoHelp.textContent="Choisissez un département dans les suggestions.";
+  renderDepartmentSuggestions();
+});
+
+departmentList.addEventListener("click",event=>{
+  const button=event.target.closest(".department-suggestion");
+  if(!button) return;
+  const item=DEPARTEMENTS.find(d=>d.code===button.dataset.code);
+  if(item) chooseDepartment(item);
+});
+
+departmentInput.addEventListener("keydown",event=>{
+  if(departmentList.hidden) return;
+  const buttons=[...departmentList.querySelectorAll(".department-suggestion")];
+  if(!buttons.length) return;
+  if(event.key==="ArrowDown"){
+    event.preventDefault();
+    departmentActiveIndex=(departmentActiveIndex+1)%buttons.length;
+  }else if(event.key==="ArrowUp"){
+    event.preventDefault();
+    departmentActiveIndex=(departmentActiveIndex-1+buttons.length)%buttons.length;
+  }else if(event.key==="Enter" && departmentActiveIndex>=0){
+    event.preventDefault();buttons[departmentActiveIndex].click();return;
+  }else if(event.key==="Escape"){
+    hideDepartmentSuggestions();return;
+  }else{return;}
+  buttons.forEach((b,i)=>b.classList.toggle("active",i===departmentActiveIndex));
+  buttons[departmentActiveIndex].scrollIntoView({block:"nearest"});
+});
+
+departmentInput.addEventListener("focus",()=>{
+  if(departmentInput.value.trim() && !resolveDepartment(departmentInput.value)) renderDepartmentSuggestions();
+});
+
+document.addEventListener("click",event=>{
+  if(!event.target.closest(".department-combobox")) hideDepartmentSuggestions();
+});
+
+function syncDepartmentSelection(showError=false){
+  const raw=departmentInput.value.trim();
+  if(!raw){
+    departmentCodeInput.value=""; regionInput.value=""; departmentInput.setCustomValidity("");
+    locationAutoHelp.textContent="Choisissez un département dans la liste. La région sera ajoutée automatiquement.";
+    return null;
+  }
+  const item=resolveDepartment(raw);
+  if(!item){
+    departmentCodeInput.value=""; regionInput.value="";
+    departmentInput.setCustomValidity("Choisissez un département proposé dans la liste.");
+    locationAutoHelp.textContent="Sélectionnez une proposition de la liste afin d’éviter les erreurs de département.";
+    if(showError) departmentInput.reportValidity();
+    return null;
+  }
+  departmentInput.value=departmentLabel(item);
+  departmentCodeInput.value=item.code;
+  regionInput.value=item.region;
+  departmentInput.setCustomValidity("");
+  locationAutoHelp.textContent=`Région ajoutée automatiquement : ${item.region}.`;
+  return item;
+}
+
+function setSingleGroupValue(name,value="non_precise"){
+  const boxes=[...document.querySelectorAll(`input[type="checkbox"][name="${name}"]`)];
+  boxes.forEach(box=>box.checked=box.value===value);
+}
+
+function togglePublicFields(){
+  const isPublic=sectorField.value==="Public";
+  publicFields.hidden=!isPublic;
+  if(!isPublic){
+    document.getElementById("p_fonction_publique").value="non_precise";
+    setSingleGroupValue("categorie_unique");
+    setSingleGroupValue("statut_unique");
+  }
+}
+
+function toggleSalaryFields(){
+  salaryAmountFields.hidden=remunerationType.value!=="montant";
+  gridReferenceField.hidden=remunerationType.value!=="grille";
+  if(remunerationType.value!=="montant"){
+    document.getElementById("p_salaire_min").value="";
+    document.getElementById("p_salaire_max").value="";
+  }
+  if(remunerationType.value!=="grille") document.getElementById("p_grille_reference").value="";
+}
+
+departmentInput.addEventListener("change",()=>syncDepartmentSelection(false));
+departmentInput.addEventListener("blur",()=>syncDepartmentSelection(false));
+departmentInput.addEventListener("input",()=>{
+  departmentCodeInput.value=""; regionInput.value=""; departmentInput.setCustomValidity("");
+  locationAutoHelp.textContent="Choisissez un département dans la liste. La région sera ajoutée automatiquement.";
+});
+populateDepartments();
+
+function setupExclusiveGroups(){
+  document.querySelectorAll('[data-multi-group]').forEach(group=>{
+    const boxes=[...group.querySelectorAll('input[type="checkbox"]')];
+    boxes.forEach(box=>box.addEventListener("change",()=>{
+      if(box.dataset.exclusive!==undefined && box.checked){
+        boxes.forEach(other=>{if(other!==box) other.checked=false;});
+      }else if(box.checked){
+        boxes.filter(other=>other.dataset.exclusive!==undefined).forEach(other=>other.checked=false);
+      }
+    }));
+  });
+}
+
+function setupSingleGroups(){
+  document.querySelectorAll('[data-single-group]').forEach(group=>{
+    const boxes=[...group.querySelectorAll('input[type="checkbox"]')];
+    const fallback=boxes.find(box=>box.value==="non_precise");
+    boxes.forEach(box=>box.addEventListener("change",()=>{
+      if(box.checked){
+        boxes.forEach(other=>{if(other!==box) other.checked=false;});
+      }else if(!boxes.some(other=>other.checked) && fallback){
+        fallback.checked=true;
+      }
+    }));
+  });
+}
+
+function selectedValues(form,name){
+  return form.getAll(name).map(v=>String(v).trim()).filter(v=>v && v!=="non_precise");
+}
+
+function nullableSelect(form,name){
+  const v=String(form.get(name)||"").trim();
+  return (!v || v==="non_precise") ? null : v;
+}
+
+function nullableNumber(form,name){
+  const raw=String(form.get(name)||"").trim();
+  if(!raw) return null;
+  const n=Number(raw);
+  return Number.isFinite(n) && n>=0 ? Math.round(n) : null;
+}
+
+function legacySalary(mode,min,max,grid){
+  if(mode==="grille") return grid ? `Selon grille indiciaire · ${grid}` : "Selon grille indiciaire";
+  if(mode!=="montant") return null;
+  const fmt=n=>new Intl.NumberFormat("fr-FR").format(n)+" €";
+  if(min && max && min!==max) return `${fmt(min)} – ${fmt(max)} brut/an`;
+  if(min) return `${fmt(min)} brut/an`;
+  if(max) return `Jusqu’à ${fmt(max)} brut/an`;
+  return null;
+}
+
+async function sendProposal(event){
+  event.preventDefault();
+  submitOfferButton.disabled=true;
+  submitOfferButton.textContent="Envoi…";
+  submitStatus.textContent="";
+  submitStatus.className="status";
+
+  const selectedDepartment=syncDepartmentSelection(true);
+  if(departmentInput.value.trim() && !selectedDepartment){
+    submitOfferButton.disabled=false;
+    submitOfferButton.textContent="Envoyer l’offre";
+    return;
+  }
+
+  const form=new FormData(submitForm);
+  const value=name=>{const v=String(form.get(name)||"").trim();return v===""?null:v};
+  const secteur=value("secteur");
+  const contrat=nullableSelect(form,"contrat");
+  const statut=secteur==="Public" ? nullableSelect(form,"statut_unique") : null;
+  const categorie=secteur==="Public" ? nullableSelect(form,"categorie_unique") : null;
+  const tempsTravail=nullableSelect(form,"temps_travail_unique");
+  const niveauxEtudes=selectedValues(form,"niveaux_etudes");
+  // Les tableaux sont conservés en base pour compatibilité, mais contiennent désormais 0 ou 1 valeur,
+  // sauf niveaux_etudes qui reste réellement multi-sélectionnable.
+  const contrats=contrat ? [contrat] : [];
+  const statuts=statut ? [statut] : [];
+  const categories=categorie ? [categorie] : [];
+  const tempsTravailOptions=tempsTravail ? [tempsTravail] : [];
+  const teletravailCode=nullableSelect(form,"teletravail");
+  const encadrementCode=nullableSelect(form,"encadrement");
+  const experience=nullableSelect(form,"experience");
+  const remuneration=nullableSelect(form,"remuneration_type");
+  const salaireMin=remuneration==="montant" ? nullableNumber(form,"salaire_min") : null;
+  const salaireMax=remuneration==="montant" ? nullableNumber(form,"salaire_max") : null;
+  const grilleReference=remuneration==="grille" ? value("grille_reference") : null;
+
+  if(salaireMin!==null && salaireMax!==null && salaireMax<salaireMin){
+    submitStatus.textContent="Le salaire maximum doit être supérieur ou égal au minimum.";
+    submitStatus.className="status error";
+    submitOfferButton.disabled=false;
+    submitOfferButton.textContent="Envoyer l’offre";
+    return;
+  }
+
+  const payload={
+    titre:value("titre"),
+    employeur:value("employeur"),
+    ville:value("ville"),
+    departement:selectedDepartment ? selectedDepartment.nom : null,
+    departement_code:selectedDepartment ? selectedDepartment.code : null,
+    region:selectedDepartment ? selectedDepartment.region : null,
+    secteur,
+
+    // Colonnes historiques conservées pour compatibilité pendant la transition.
+    type_contrat:contrat,
+    statut:statut,
+    categorie:categorie,
+    specialite:null,
+    teletravail:teletravailCode==="oui" ? "Oui" : teletravailCode==="non" ? "Non" : null,
+    salaire:legacySalary(remuneration,salaireMin,salaireMax,grilleReference),
+
+    // Nouveau modèle structuré.
+    fonction_publique:secteur==="Public" ? nullableSelect(form,"fonction_publique") : null,
+    contrats,
+    statuts,
+    categories,
+    temps_travail_options:tempsTravailOptions,
+    teletravail_bool:teletravailCode==="oui" ? true : teletravailCode==="non" ? false : null,
+    niveaux_etudes:niveauxEtudes,
+    experience_code:experience,
+    encadrement:encadrementCode==="oui" ? true : encadrementCode==="non" ? false : null,
+    remuneration_type:remuneration,
+    salaire_min:salaireMin,
+    salaire_max:salaireMax,
+    salaire_periode:remuneration==="montant" ? "annuel" : null,
+    grille_reference:grilleReference,
+
+    date_limite:value("date_limite"),
+    url_source:value("url_source"),
+    email_contact:value("email_contact"),
+    commentaire:value("commentaire"),
+    statut_validation:"en_attente"
+  };
+
+  try{
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/propositions`,{
+      method:"POST",
+      headers:{"apikey":SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      body:JSON.stringify(payload)
+    });
+    if(!response.ok){const message=await response.text();throw new Error(message||`Erreur ${response.status}`)}
+    submitForm.reset();
+    setSingleGroupValue("contrat");
+    setSingleGroupValue("categorie_unique");
+    setSingleGroupValue("statut_unique");
+    setSingleGroupValue("temps_travail_unique");
+    syncDepartmentSelection(false);
+    togglePublicFields();
+    toggleSalaryFields();
+    submitStatus.textContent="Offre envoyée. Elle sera vérifiée avant publication.";
+    submitStatus.className="status success";
+  }catch(error){
+    console.error(error);
+    const technical=String(error?.message||"");
+    submitStatus.textContent=technical
+      ? `L’envoi a échoué. Détail technique : ${technical}`
+      : "L’envoi a échoué. Vérifiez les informations ou réessayez plus tard.";
+    submitStatus.className="status error";
+  }finally{
+    submitOfferButton.disabled=false;
+    submitOfferButton.textContent="Envoyer l’offre";
+  }
+}
+
+sectorField.addEventListener("change",togglePublicFields);
+remunerationType.addEventListener("change",toggleSalaryFields);
+setupExclusiveGroups();
+setupSingleGroups();
+togglePublicFields();
+toggleSalaryFields();
+submitForm.addEventListener("submit",sendProposal);
+</script>
+</body>
+</html>
